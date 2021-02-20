@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>  <!-- fontawesome-->
+</head>
+<body>
+    <div class="wrap">
+        <header id="header">
+        <div class="header__logo">
+            <i class="fas fa-code"></i>
+            <a href="#">게시판</a>
+        </div>
+
+        <ul class="header__navbar">
+            <li class="navbar__menu__item active" data-link="#total">전체</li>
+            <li class="navbar__menu__item" data-link="#free">자유</li>
+            <li class="navbar__menu__item" data-link="#qna">질문</li>
+            <li class="navbar__menu__item" data-link="#jobs">구직</li>
+        </ul>
+        </header>
+        <div class="container">
+            <div class="container__subTitle">
+                <section class="container__subTitle__tab">
+                <ul class="category">
+                <li class="category__item" data-link="#new">최신순</li>
+                <li class="category__item" data-link="#cmnt">댓글순</li>
+                <li class="category__item" data-link="#cnt">조회순</li>
+                </ul>
+                </section>
+                <section class="container__subTitle__search">
+                    <form class="container__subTitle__search" action="GET" >
+                        <select name="search" >
+                            <option value="title">제목</option>
+                            <option value="contents">내용</option>
+                            <option value="writer">작성자</option>
+                            <option value="titlecontents">제목+내용</option>
+                        </select>
+                        <input class="text" type="text" placeholder="검색" name="keyword">
+                        <input class="search" type="submit" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$"
+                        placeholder="검색어를 입력해 주세요.">
+                    </form>
+                </section>
+            </div>
+
+            <div class="container__board">
+                <div class="container__board__list">
+                <span class="type">공지</span>
+                <span class="title"><a href="#">제목입니다!!</a> </span>
+                <span class="writer">김덕자</span>
+                <span class="date">2021.02.20</span>
+                <span class="cnt">122</span>
+                <span class="like">3</span>
+                </div>
+            
+                <div class="container__board__paging">
+                    <a class="paging__on" href="#">1</a>
+                    <a class="paging" href="#">2</a>
+                    <a class="paging" href="#">3</a>
+                    <a class="paging" href="#">4</a>
+                    <a class="next" href="#">다음</a>
+                </div>
+
+                <button class="btn__wirte">글쓰기</button>
+            </div>
+
+            
+        </div>
+        <button class="arrow-up__btn">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+   
+
+
+</body>
+</html>
