@@ -1,129 +1,246 @@
 /* Grobal */
-:root{
-    /* Color */
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-light-white: #eeeeee;
-    --color-dark-white: #bdbdbd;
-    --color-gray: #616161;
-    --color-light-gray: #7c7979;
-    /* FontSize */
-    --font-large: 48px;
-    --font-medium: 28px;
-    --font-regular: 18px;
-    --font-small: 16px;
-    --font-micro: 14px;
-    /* Font Weigth */
-    --weight-regular: 400;
-    --weight-bold: 700;
-    --weight-semi-bold: 600;
-    /* Border Size */
-    --size-border-radius: 4px;
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-gray: #616161;
+  --color-light-gray: #7c7979;
+  /* FontSize */
+  --font-large: 48px;
+  --font-medium: 32px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+  /* Font Weigth */
+  --weight-regular: 400;
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  /* Border Size */
+  --size-border-radius: 4px;
 
-    /* Animation */
-    --animation-duration: 300ms;
+  /* Animation */
+  --animation-duration: 300ms;
 }
 /* Universal tags */
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 /* Body */
 body {
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-    cursor: default;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  cursor: default;
 }
 
 a {
-    /* a태그 밑에 있는 밑줄 제거 */
-    text-decoration: none;
-    color: var(--color-black);
+  /* a태그 밑에 있는 밑줄 제거 */
+  text-decoration: none;
+  color: var(--color-black);
 }
 
 ul {
-    /* ul 스타일 제거 */
-    list-style: none;
-    padding-left: 0;
+  /* ul 스타일 제거 */
+  list-style: none;
+  padding-left: 0;
 }
 
 /* Typography */
 h1 {
-    font-size: var(--font-large);
-    font-weight: var(--weight-bold);
-    color: var(--color-black);
-    margin: 16px 0;
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0;
 }
 
 h2 {
-    font-size: var(--font-medium);
-    font-weight: var(--weight-semi-bold);
-    color: var(--color-black);
-    margin: 8px 0;
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
 }
 
 h3 {
-    font-size: var(--font-regular);
-    font-weight: var(--font-regular);
-    color: var(--color-black);
-    margin: 8px 0;
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 8px 0;
 }
 
 p {
-    font-size: var(--font-regular);
-    font-weight: var(--font-regular);
-    color: var(--color-black);
-    margin: 4px 0;
+  font-size: var(--font-regular);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
+  margin: 4px 0;
 }
 
 button {
-    background: transparent;
-    cursor: pointer;
-    border: none;
-    outline: none;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
-
 
 /* Header */
-#header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid black;
 }
 
-.header__logo{
-    background-color: darkolivegreen;
-    width: 300px;
-    height: 100px;
-    text-align: center;
-    font-size: var(--font-large);
-    line-height: var(--font-large);
+.header__logo {
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  font-size: var(--font-large);
+  line-height: var(--font-large);
 
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
-.header__navbar{
-    display: flex;
+.header__navbar {
+  display: flex;
 }
 
-.navbar__menu__item{
-    margin-right: 10px;
-    font-size: var(--font-small);
+.navbar__menu__item {
+  margin-right: 10px;
+  font-size: var(--font-small);
+  font-weight: var(--weight-bold);
+  transition: all var(--animation-duration) ease;
+}
+
+.navbar__menu__item.active {
+  border-bottom: 2px red solid;
+}
+
+.navbar__menu__item:hover {
+  transform: scale(1.2);
 }
 
 /* container */
-.container__subTitle{
-    display:flex;
-    justify-content: space-between;
+#container {
+  padding-top: 120px;
+}
+.container__subTitle {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
-.category{
-    display:flex;
-    margin-left: 10px;
+.category {
+  display: flex;
+  margin-left: 10px;
 }
-.category__item{
-    margin-left: 10px;
+.category__item {
+  margin-left: 10px;
+  transition: all var(--animation-duration) ease;
 }
 
+.category__item:hover {
+  transform: scale(1.2);
+}
 
+/* 검색창 */
 
+.container {
+}
 
+.container__subTitle__select {
+  width: 100px;
+  height: 50px;
+  font-size: var(--font-regular);
+}
+
+.container__subTitle__text {
+  width: 200px;
+  height: 50px;
+  margin: 0;
+  font-size: var(--font-regular);
+}
+
+.container__subTitle__btn {
+  font-size: var(--font-regular);
+  width: 50px;
+  height: 50px;
+}
+
+/* 게시판 */
+
+.container__board {
+  display: table;
+  padding-top: 60px;
+  width: 1300px;
+  height: 1200px;
+  margin: auto;
+  vertical-align: middle;
+}
+
+.container__board__list {
+  display: table-row;
+  border: solid 3px black;
+  height: 54px;
+  font-size: var(--font-small);
+}
+.container__board__type {
+  position: relative;
+  border: solid 1px black;
+  color: var(--color-white);
+  border: 2px solid var(--color-black);
+  background-color: var(--color-light-gray);
+  border-radius: 4px;
+  margin: 0px 30px;
+}
+
+.container__board__title {
+  display: table-cell;
+  margin: 0px 30px;
+  font-size: var(--font-regular);
+}
+
+.container__board__writer {
+  display: table-cell;
+}
+
+.container__board__date {
+  display: table-cell;
+}
+.container__board__cnt {
+  display: table-cell;
+}
+.container__board__like {
+  display: table-cell;
+}
+
+.container__board__paging {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+.btn__wirte {
+  position: absolute;
+  top: 100%;
+  left: 80%;
+  width: 200px;
+  height: 50px;
+  background-color: var(--color-gray);
+}
+
+.arrow-up__btn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-medium);
+}
+
+/* login.html */
+
+/* join.html */
+
+/* view.html */
+
+/* update.htnl */

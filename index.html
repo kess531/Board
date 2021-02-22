@@ -12,6 +12,7 @@
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
+    </head>
 <body>
     <div class="wrap">
         <header id="header">
@@ -39,39 +40,40 @@
                 </ul>
                 </section>
                 <section class="container__subTitle__search">
-                    <form class="container__subTitle__search" action="GET" >
-                        <select name="search" >
-                            <option value="title">제목</option>
+                    <form class="container__subTitle__form" action="GET" >
+                        <select class="container__subTitle__select" name="search" >
+                            <option class="container__subTitle__select__item" value="title">제목</option>
                             <option value="contents">내용</option>
                             <option value="writer">작성자</option>
                             <option value="titlecontents">제목+내용</option>
                         </select>
-                        <input class="text" type="text" placeholder="검색" name="keyword">
-                        <input class="search" type="submit" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$"
-                        placeholder="검색어를 입력해 주세요.">
+                        <input class="container__subTitle__text" type="text" placeholder="검색어를 입력해 주세요" name="keyword">
+                        <input class="container__subTitle__btn" type="submit" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$">
                     </form>
                 </section>
             </div>
 
             <div class="container__board">
                 <div class="container__board__list">
-                <span class="type">공지</span>
-                <span class="title"><a href="#">제목입니다!!</a> </span>
-                <span class="writer">김덕자</span>
-                <span class="date">2021.02.20</span>
-                <span class="cnt">122</span>
-                <span class="like">3</span>
+                <span class="container__board__title">
+                    <span class="container__board__type">공지</span>
+                    <a href="#">제목입니다!!</a> </span>
+                <span class="container__board__writer">김덕자</span>
+                <span class="container__board__date">2021.02.20</span>
+                <span class="container__board__cnt"><i class="fas fa-eye"></i>122</span>
+                <span class="container__board__like"><i class="fas fa-grin-hearts"></i>3</span>
                 </div>
-            
+
                 <div class="container__board__paging">
                     <a class="paging__on" href="#">1</a>
                     <a class="paging" href="#">2</a>
                     <a class="paging" href="#">3</a>
                     <a class="paging" href="#">4</a>
                     <a class="next" href="#">다음</a>
+                    
                 </div>
-
                 <button class="btn__wirte">글쓰기</button>
+             
             </div>
 
             
@@ -80,7 +82,7 @@
             <i class="fas fa-arrow-up"></i>
         </button>
     </div>
-   
+
 
 
 </body>
