@@ -256,8 +256,8 @@ button {
   flex-direction: column;
 }
 
-#loginId {
-  margin-top: 50%;
+.fieldset__textbox {
+  margin-top: 24px;
   width: 420px;
   height: 52px;
   border: 2px solid var(--color-black);
@@ -265,13 +265,8 @@ button {
   background-color: var(--color-light-white);
 }
 
-#loginPw {
-  margin-top: 20px;
-  width: 420px;
-  height: 52px;
-  border: 2px solid var(--color-black);
-  font-size: medium;
-  background-color: var(--color-light-white);
+.fieldset__textbox__selected {
+  border: 2px solid var(--color-light-gray);
 }
 
 .joingo {
@@ -279,14 +274,23 @@ button {
   text-align: right;
 }
 
-.loginSubmit {
+.fieldset__submit {
   margin-top: 20%;
   width: 420px;
   height: 52px;
   border-radius: 50px;
 }
+
 /* join.html */
+.join__header {
+  text-align: center;
+}
+
+.join__head {
+  text-align: left;
+  margin-top: 10px;
+}
 
 /* view.html */
 
-/* update.htnl */
+/* update.htnl */ ;
