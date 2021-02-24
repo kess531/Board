@@ -298,6 +298,7 @@ button {
   height: 800px;
   background-color: var(--color-light-gray);
   margin: auto;
+  margin-bottom: 100px;
 }
 .container__write__form__subject {
   height: 64px;
@@ -346,10 +347,122 @@ button {
   height: 60px;
   border: 1px solid var(--color-black);
   border-radius: 30px;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
 }
 .container__write__btn2 {
   width: 140px;
   height: 100%;
 }
 
-/* update.htnl */
+/* contentview.html */
+.container__contentview {
+  width: 1400px;
+  height: 800px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+.container__contentview__board__menu__catalog {
+  font-size: var(--font-medium);
+  margin-left: 32px;
+}
+
+.container__contentview__board__menu__btn {
+  margin-right: 20px;
+}
+
+.container__contentview__board__menu {
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-black);
+  align-items: center;
+}
+
+.container__contentview__board__subject {
+  margin: 20px 0;
+  display: flex;
+}
+
+.container__contentview__board__type {
+  margin-left: 30px;
+  border: 1px solid var(--color-black);
+  border-radius: 20px;
+  background: var(--color-dark-white);
+  width: 70px;
+  height: 40px;
+  font-size: var(--font-regular);
+  text-align: center;
+  line-height: 40px;
+  font-weight: var(--weight-bold);
+}
+
+.container__contentview__board__title {
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  font-size: var(--font-regular);
+  margin: auto;
+}
+
+.container__contentview__board__info {
+  display: flex;
+  font-size: var(--font-regular);
+  text-align: center;
+}
+
+.container__contentview__board__info__item {
+  margin: 0 10px;
+}
+
+.container__contentview__board__content {
+  margin-top: 100px;
+  background-color: var(--color-white);
+  font-size: var(--font-regular);
+  height: 400px;
+  padding: 20px;
+}
+
+.container__contentview__board__content__like {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container__contentview__board__content__likeBtn {
+  font-size: var(--font-medium);
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  width: 130px;
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+.container__contentview__board__content__like :hover {
+  background-color: var(--color-white);
+
+  color: red;
+}
+
+.container__contentview__comment {
+  margin: 20px 20px;
+  border-top: 1px solid var(--color-black);
+}
+
+.container__contentview__comment__header {
+  margin: 20px 20px;
+}
+
+.container__contentview__comment__content {
+  border-bottom: 1px var(--color-black) solid;
+  margin: 20px 20px;
+}
+
+.container__contentview__comment__content__wrap {
+  display: flex;
+}
+
+.container__contentview__comment__content__info {
+  display: flex;
+}
