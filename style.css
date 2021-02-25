@@ -231,7 +231,7 @@ button {
   background-color: var(--color-gray);
 }
 
-.arrow-up__btn {
+.arrowup__btn {
   position: fixed;
   bottom: 16px;
   right: 16px;
@@ -503,4 +503,5 @@ button {
 }
 
 .container__contentview__comment__reply {
+  display: none;
 }
