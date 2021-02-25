@@ -492,7 +492,15 @@ button {
 .container__contentview__comment__content__replyBtn {
 }
 
+.container__contentview__comment__reply__writer {
+  font-weight: var(--weight-bold);
+  margin: 10px 0;
+}
+
 .container__contentview__comment__commentText {
   width: 100%;
   height: 100px;
+}
+
+.container__contentview__comment__reply {
 }
