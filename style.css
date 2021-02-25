@@ -34,6 +34,9 @@ body {
   cursor: default;
 }
 
+textarea {
+  resize: none;
+}
 a {
   /* a태그 밑에 있는 밑줄 제거 */
   text-decoration: none;
@@ -447,7 +450,7 @@ button {
 
 .container__contentview__comment {
   margin: 20px 20px;
-  border-top: 1px solid var(--color-black);
+  border-top: 3px solid var(--color-black);
 }
 
 .container__contentview__comment__header {
@@ -461,8 +464,35 @@ button {
 
 .container__contentview__comment__content__wrap {
   display: flex;
+  font-size: var(--font-regular);
 }
 
 .container__contentview__comment__content__info {
   display: flex;
+  margin-top: 30px;
+}
+
+.container__contentview__comment__content__writer {
+  width: 200px;
+  border-right: 1px solid var(--color-black);
+}
+
+.container__contentview__comment__content__wrap {
+  margin-left: 20px;
+}
+
+.container__contentview__comment__content__date {
+  margin-left: 240px;
+}
+
+.container__contentview__comment__content__reply {
+  margin-left: 20px;
+}
+
+.container__contentview__comment__content__replyBtn {
+}
+
+.container__contentview__comment__commentText {
+  width: 100%;
+  height: 100px;
 }
