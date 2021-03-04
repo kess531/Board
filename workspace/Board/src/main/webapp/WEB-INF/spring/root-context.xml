@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
@@ -11,9 +13,9 @@
 		
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource"> 
 <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
-<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
-<property name="username" value="scott" /> 
-<property name="password" value="tiger" /> 
+<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+<property name="username" value="boardOrcl" /> 
+<property name="password" value="orcl1234" /> 
 </bean>
 
 		
@@ -30,5 +32,9 @@
 </bean>
 
 <context:component-scan base-package="com.spring.board">
+
+
+
 </context:component-scan>
+<bean class="org.springframework.mock.web.MockServletContext" />
 </beans>
