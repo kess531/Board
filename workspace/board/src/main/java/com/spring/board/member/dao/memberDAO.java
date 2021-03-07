@@ -6,4 +6,6 @@ import com.spring.board.member.dto.memberDTO;
 
 public interface memberDAO {
 	public List<memberDTO> memberList();
+	
+	
 }

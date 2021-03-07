@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.board.member.dto.memberDTO;
 
+
 @Repository
 public class memberDAOImpl implements memberDAO {
 

@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+PUBLIC "-//mybatis.org//DTD M
+apper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
 <mapper namespace="member">
-	<select id="memberList" resultType="com.spring.board.member.memberDTO">
+	<select id="memberList" resultType="com.spring.board.member.dto.memberDTO">
 	select * 
 	from member
-	
 	</select>
+	
+	
+	<insert id="memberInsert" parameterType="com.spring.board.member.dto.memberDTO">
+	insert into member
+	values(
+	seq_member.nextval,
+	#{memberId}
+	#{memberPw}
+	#{memberEmail}
+	)
+	</insert>
 </mapper>
 
 
