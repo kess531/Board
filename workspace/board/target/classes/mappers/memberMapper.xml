@@ -13,11 +13,14 @@ apper 3.0//EN"
 	
 	
 	<insert id="memberInsert" parameterType="com.spring.board.member.dto.memberDTO">
+	<selectKey keyProperty="memberNo" resultType="integer" order="BEFORE">
+	select seq_member.nextval from dual
+	</selectKey>
 	insert into member
 	values(
-	seq_member.nextval,
-	#{memberId}
-	#{memberPw}
+	#{memberNo},
+	#{memberId},
+	#{memberPw},
 	#{memberEmail}
 	)
 	</insert>

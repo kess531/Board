@@ -27,12 +27,21 @@ public class memberController {
 		return "member/list";
 	}
 	
+	@RequestMapping(value="/join.do")
+	public String join(memberDTO dto) {
+		
+	
+		
+		return "member/join";
+				
+	}
+	
 	@RequestMapping(value="/memberjoin", method = RequestMethod.POST)
 	public String memberReg(memberDTO dto) {
 		
 		memberService.memberInsert(dto);
 		
-		return "redirect:/join.do";
+		return "redirect:/list";
 				
 	}
 }

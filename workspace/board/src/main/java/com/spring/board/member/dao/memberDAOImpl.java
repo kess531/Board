@@ -17,10 +17,16 @@ public class memberDAOImpl implements memberDAO {
 	SqlSession sqlsession;
 	
 	private static final String namespace ="member.";
-	
+	@Override
 	public List<memberDTO> memberList() {
 		List<memberDTO> list = sqlsession.selectList(namespace + "memberList");
 		return list;
+	}
+
+	@Override
+	public void memberInsert(memberDTO dto) {
+		sqlsession.insert(namespace + "memberInsert",dto);
+		
 	}
 	
 }
