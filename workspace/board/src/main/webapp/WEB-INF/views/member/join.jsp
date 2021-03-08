@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css"  />
 </head>
 <body>
   <header class="join__header">
