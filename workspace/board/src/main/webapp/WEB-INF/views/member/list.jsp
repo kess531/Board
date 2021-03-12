@@ -24,7 +24,6 @@
 <td>${item.memberEmail}</td>
 
 
-</tr>
 
 ​
 

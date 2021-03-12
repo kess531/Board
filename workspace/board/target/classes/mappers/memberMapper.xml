@@ -24,6 +24,12 @@ apper 3.0//EN"
 	#{memberEmail}
 	)
 	</insert>
+	
+	<select id="memberLogin" resultType="com.spring.board.member.dto.memberDTO">
+	select memberId, memberPw
+	from member
+	where memberId = #{memberId} 
+	</select>
 </mapper>
 
 

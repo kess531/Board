@@ -28,6 +28,14 @@ public class memberDAOImpl implements memberDAO {
 		sqlsession.insert(namespace + "memberInsert",dto);
 		
 	}
+
+	@Override
+	public memberDTO memberLogin(memberDTO dto) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namespace + "memberLogin",dto);
+	}
+
+
 	
 }
 

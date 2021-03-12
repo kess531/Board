@@ -33,7 +33,7 @@
                         <input type="text" name="memberEmail" class="fieldset__textbox">
                         </div>
                         <div class="join__fieldset__btn">
-                        <input class="membersubmit" type="submit" value="회원가입">
+                        <input class="fieldset__submit" type="submit" value="회원가입">
                         </div>   
                         </form>
             </fieldset>

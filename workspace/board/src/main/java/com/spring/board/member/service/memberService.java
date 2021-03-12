@@ -9,4 +9,6 @@ public interface memberService {
 	public List<memberDTO> memberList();
 	
 	public void memberInsert(memberDTO dto);
+	
+	public String login(memberDTO dto);
 }
