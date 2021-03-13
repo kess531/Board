@@ -1,0 +1,94 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css"  />
+
+    <!-- 구글 폰트 사용 -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- fontawesome-->
+    <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
+    </head>
+<body>
+    <div class="wrap">
+        <header id="header">
+        <div class="header__logo">
+            <i class="fas fa-code"></i>
+            <a href="#">게시판</a>
+        </div>
+
+        <ul class="header__navbar">
+            <li class="navbar__menu__item active" data-link="#total">전체</li>
+            <li class="navbar__menu__item" data-link="#free">자유</li>
+            <li class="navbar__menu__item" data-link="#qna">질문</li>
+            <li class="navbar__menu__item" data-link="#jobs">구직</li>
+            <c:if test="${member!= null}">
+            <li>${member}님 환영합니다. 이건 나중에 지우자</li>
+			<li class="navbar__menu__item" data-link="#logaut"><a href="logout">로그아웃</a></li>
+			</c:if>
+			<c:if test="${member==null}">
+            <li class="navbar__menu__item" ><a href="member/login.do">로그인</a></li>
+            <li class="navbar__menu__item" ><a href="member/join.do">회원가입</a></li>
+			</c:if>
+
+        </ul>
+        </header>
+        <div id="container">
+            <div class="container__subTitle">
+                <section class="container__subTitle__tab">
+                <ul class="category">
+                <li class="category__item" data-link="#new">최신순</li>
+                <li class="category__item" data-link="#cmnt">댓글순</li>
+                <li class="category__item" data-link="#cnt">조회순</li>
+                </ul>
+                </section>
+                <section class="container__subTitle__search">
+                    <form class="container__subTitle__form" action="GET" >
+                        <select class="container__subTitle__select" name="search" >
+                            <option class="container__subTitle__select__item" value="title">제목</option>
+                            <option value="contents">내용</option>
+                            <option value="writer">작성자</option>
+                            <option value="titlecontents">제목+내용</option>
+                        </select>
+                        <input class="container__subTitle__text" type="text" placeholder="검색어를 입력해 주세요" name="keyword">
+                        <input class="container__subTitle__btn" type="submit" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$">
+                    </form>
+                </section>
+            </div>
+
+            <div class="container__board">
+                <div class="container__board__list">
+                <span class="container__board__title">
+                    <span class="container__board__type">공지</span>
+                    <a href="contentview">제목입니다!!</a> </span>
+                <span class="container__board__writer">김덕자</span>
+                <span class="container__board__date">2021.02.20</span>
+                <span class="container__board__cnt"><i class="fas fa-eye"></i>122</span>
+                <span class="container__board__like"><i class="fas fa-grin-hearts"></i>3</span>
+                </div>
+                <div class="container__board__paging">
+                    <a class="paging__on" href="#">1</a>
+                    <a class="paging" href="#">2</a>
+                    <a class="paging" href="#">3</a>
+                    <a class="paging" href="#">4</a>
+                    <a class="next" href="#">다음</a>
+                </div>
+                <button class="btn__wirte">글쓰기</button>
+            </div>
+
+            
+        </div>
+   
+    </div>
+
+
+
+</body>
+</html>
