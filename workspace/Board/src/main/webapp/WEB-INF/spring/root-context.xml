@@ -35,14 +35,13 @@
     	</bean>
 
 <!-- 트랜잭션 매니저 bean 을 등록 -->
-
-<bean id="transactionManager"
-
-class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 <property name="dataSource" ref="dataSource" />
 
 </bean>
+
+
+
 
 
 <!-- 아노테이션 기반의 트랜잭션을 사용. -->
@@ -51,3 +50,5 @@ class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 transaction-manager="transactionManager" />
 		
 </beans>
+
+

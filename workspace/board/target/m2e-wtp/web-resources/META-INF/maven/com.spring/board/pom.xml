@@ -48,8 +48,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				<!-- jdbc  -->
-				<dependency>
+<!-- jdbc  -->
+<dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-jdbc</artifactId>
     <version>${org.springframework-version}</version>
@@ -75,17 +75,12 @@
 </dependency> 
 
 <!-- oracle jdbc -->
-
 <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
 
 <dependency>
-
-<groupId>oracle</groupId>
-
-<artifactId>ojdbc6</artifactId>
-
-<version>${com.oracle-version}</version>
-
+	<groupId>oracle</groupId>
+	<artifactId>ojdbc6</artifactId>
+	<version>${com.oracle-version}</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
@@ -95,26 +90,46 @@
     <version>1.4</version>
 </dependency>
 
-        <!--스프링시큐리티 web 라이브러리-->                   
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>4.2.1.RELEASE</version>
-        </dependency>
-        <!--스프링시큐리티 core 라이브러리-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>4.2.1.RELEASE</version>
-        </dependency>
-        <!--스프링시큐리티 config 라이브러리-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>4.2.1.RELEASE</version>
-        </dependency>
+<!--스프링시큐리티 web 라이브러리-->                   
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-web</artifactId>
+	<version>4.2.1.RELEASE</version>
+</dependency>
+<!--스프링시큐리티 core 라이브러리-->
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-core</artifactId>
+	<version>4.2.1.RELEASE</version>
+</dependency>
+
+<!--스프링시큐리티 config 라이브러리-->
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-config</artifactId>
+	<version>4.2.1.RELEASE</version>
+</dependency>
+
+<!-- validation -->
+<dependency>
+	<groupId>javax.validation</groupId>
+	<artifactId>validation-api</artifactId>
+	<version>1.0.0.GA</version>
+</dependency>
+
+<dependency>
+	<groupId>org.hibernate</groupId>
+	<artifactId>hibernate-validator</artifactId>
+	<version>4.2.0.Final</version>
+</dependency>
 
 
+<!-- JAXB API 추가 -->
+<dependency>
+	<groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.0</version>
+</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
