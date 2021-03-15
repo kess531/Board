@@ -16,11 +16,15 @@ public class memberDTO {
 	private String memberId;
 	@NotEmpty
 	@Length(min=5, max=20)
-	@Pattern(regexp="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])(?=\\S+$).{8,}")
+	@Pattern(regexp="(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{5,}")
 	private String memberPw;
 	@NotEmpty
 	@Email
 	private String memberEmail;
+	@NotEmpty
+	@Length(min=2, max=10)
+	@Pattern(regexp="(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{2,}")
+	private String memberName;
 	
 	public int getMemberNo() {
 		return memberNo;
@@ -45,6 +49,12 @@ public class memberDTO {
 	}
 	public void setMemberEmail(String memberEmail) {
 		this.memberEmail = memberEmail;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	
 	

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,71 +16,57 @@
     </header>
         <div class="join">
             <fieldset id="join" class="login__fieldset">
-                <form action="memberjoin" method="post">
+                <form:form modelAttribute="memberDTO" method="post" action="memberjoin">
                     <div class="join__fieldset__id">
                         <div class="join__head">
                         <span>아이디</span>
-                        <span>
-                        <spring:hasBindErrors name="memberDTO">
-            			<c:if test="${errors.hasFieldErrors('memberId')}">                                     
+                        <span>                                  
             			<strong>
-            			<spring:message
-            			code="${errors.getFieldError('memberId').codes[0]}"
-            			text="${errors.getFieldError('memberId').defaultMessage}"
-            			/>
+            			 <form:errors path="memberId" />
             			</strong>
-						</c:if>
-						</spring:hasBindErrors>
                         </span>
                         </div>
-                        <input type="text" name="memberId" class="fieldset__textbox">
+                         <form:input path="memberId" class="fieldset__textbox" />
                         </div>
                         <div class="join__fieldset__pw">
                         <div class="join__head">
                         <span>패스워드</span>
                         <span>
-                        <spring:hasBindErrors name="memberDTO">
-            			<c:if test="${errors.hasFieldErrors('memberPw')}">                                     
-            			<strong>
-            			<spring:message
-            			code="${errors.getFieldError('memberPw').codes[0]}"
-            			text="${errors.getFieldError('memberPw').defaultMessage}"
-            			/>
+                       <strong>
+            			 <form:errors path="memberPw" />
             			</strong>
-						</c:if>
-						</spring:hasBindErrors>
                         </span>
                         </div>
-                        <input type="password" name="memberPw" class="fieldset__textbox">
+                        <form:password path="memberPw" class="fieldset__textbox" />
       					<!--<div class="join__head">패스워드 확인</div>
                         <input type="password" name="joinPwcheck" class="fieldset__textbox"> -->
                         </div>
                         <div class="join__fieldset__name">
-        				<!--<div class="join__head">이름</div>
-                        <input type="text" name="memberName" class="fieldset__textbox">-->
+        				<div class="join__head">
+        				<span>닉네임</span>
+        				<span>
+                       <strong>
+            			 <form:errors path="memberName" />
+            			</strong>
+                        </span>
+        				</div>
+                        <form:input path="memberName" class="fieldset__textbox" />
                         </div> 
                         <div class="join__fieldset__email">
                         <div class="join__head">
 						<span>이메일</span>
                         <span>
-                        <spring:hasBindErrors name="memberDTO">
-            			<c:if test="${errors.hasFieldErrors('memberEmail')}">                                     
-            			<strong>
-            			<spring:message
-            			code="${errors.getFieldError('memberEmail').codes[0]}"
-            			text="${errors.getFieldError('memberEmail').defaultMessage}"
-            			/>
+                     <strong>
+            			 <form:errors path="memberEmail" />
             			</strong>
-						</c:if>
-						</spring:hasBindErrors>
                         </span>
                         </div>
-                        <input type="text" name="memberEmail" class="fieldset__textbox">
+                        <form:input path="memberEmail" class="fieldset__textbox" />
                         </div>
                         <div class="join__fieldset__btn">
                         <input class="fieldset__submit" type="submit" value="회원가입">
                         </div>   
-                        </form>
+                        </form:form>
             </fieldset>
         </div>
 

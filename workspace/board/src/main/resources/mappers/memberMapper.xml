@@ -21,7 +21,8 @@ apper 3.0//EN"
 	#{memberNo},
 	#{memberId},
 	#{memberPw},
-	#{memberEmail}
+	#{memberEmail},
+	#{memberName}
 	)
 	</insert>
 	
