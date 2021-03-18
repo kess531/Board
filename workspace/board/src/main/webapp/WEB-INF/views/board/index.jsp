@@ -17,6 +17,9 @@
     <script src="main.js" defer></script>
     </head>
 <body>
+<c:if test="${msg==true}">
+<script>alert('환영합니다!');</script>
+</c:if>
     <div class="wrap">
         <header id="header">
         <div class="header__logo">

@@ -29,7 +29,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	  <!-- 한글 인코딩 설정 -->
+	<!-- 한글 인코딩 설정 -->
      <filter>
            <filter-name>encodingFilter</filter-name>
           <filter-class>org.springframework.web.filter.CharacterEncodingFilter
@@ -48,7 +48,10 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-
+	<!--세션 시간  -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
 
 
 

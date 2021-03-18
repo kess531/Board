@@ -57,7 +57,7 @@ public class memberController {
 			for( ObjectError error : list ) {
 				System.out.println(error + "ㅋㅋ");
 			}
-			return "/member/join";
+			return "/member/login.do";
 		}
 		
 		
@@ -82,18 +82,20 @@ public class memberController {
 		HttpSession session = request.getSession();
 		String loginCheck = memberService.login(dto);
 		  if(loginCheck== null) {
-			  System.out.println("로그인실패");
+		System.out.println("로그인실패");
 		  session.setAttribute("member", null); 
 		  rttr.addFlashAttribute("msg",false);
+		  System.out.println(rttr);
+		  return "redirect:/member/login.do";
 		  
 		  } else {
 			  System.out.println("로그인 성공"); 
-			  session.setAttribute("member", loginCheck);	  
+			  session.setAttribute("member", loginCheck);
+			  return "board/index";
 		  }
-		  System.out.println(session);
-		 
 		
-		return "board/index";
+		
+		
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
