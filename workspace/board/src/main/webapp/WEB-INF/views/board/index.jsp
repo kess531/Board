@@ -4,22 +4,81 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript" src="/resources/js/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css"  />
-
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- 구글 폰트 사용 -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
-    <script src="main.js" defer></script>
+   <script defer type="text/javascript" >
+    
+    const container__board = document.querySelector('.container__board');
+    $(document).ready(function(){
+    	getBoardList();
+	});
+    
+        function getBoardList(){
+            
+            $.ajax({            
+                type:'GET',
+                url:'${pageContext.request.contextPath}/bulletin/listView',
+                dataType:'JSON',
+                success : function(obj) {
+                	console.log('성공');
+                    getBoardListCallback(obj);                
+                },           
+                error : function(xhr, status, error) {}
+             });
+        }
+        
+        function getBoardListCallback(obj){
+            
+            var list = obj;
+            var listLen = list.list.length
+            console.log(list);
+            console.log(list.list.length);
+		   if(listLen >  0){
+                
+                for(let i=0; i<listLen; i++){
+                    
+                    var bltTitle        = list.list[i].bltTitle; 
+                    var bltContent         = list.list[i].bltContent; 
+                    var bltType         = list.list[i].bltType; 
+                    var bltDate         = list.list[i].bltDate; 
+                    var bltLike     = list.list[i].bltLike; 
+                    var bltCnt     = list.list[i].bltCnt; 
+                    var memberName     = list.list[i].memberName; 
+                    console.log(bltTitle);
+                    const itemRow =document.createElement('div');
+                    itemRow.setAttribute('class','container__board__list');
+                    itemRow.innerHTML=`
+                    <span class="container__board__title">
+                    <span class="container__board__type">${bltType}</span>
+                    <a href="contentview">${bltTitle}</a> </span>
+                <span class="container__board__writer">${memberName}</span>
+                <span class="container__board__date">${bltDate}</span>
+                <span class="container__board__cnt"><i class="fas fa-eye"></i>${bltCnt}</span>
+                <span class="container__board__like"><i class="fas fa-grin-hearts"></i>${bltLike}</span>`; 
+                } 
+                
+            } else {
+                
+                console.log('게시글이없다');
+            }
+            
+            container__board.appendChild(itemRow);
+        }
+        
+    </script>
     </head>
 <body>
-<c:if test="${msg==true}">
-<script>alert('환영합니다!');</script>
-</c:if>
+
     <div class="wrap">
         <header id="header">
         <div class="header__logo">

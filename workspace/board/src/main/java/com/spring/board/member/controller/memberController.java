@@ -63,7 +63,7 @@ public class memberController {
 		
 		memberService.memberInsert(dto);
 		
-		return "redirect:/";
+		return "board/index";
 				
 	}
 	

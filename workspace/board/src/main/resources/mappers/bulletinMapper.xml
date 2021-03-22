@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD M
+apper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="bulletin">
+	<select id="bulletinList" resultType="com.spring.board.bulletin.dto.bulletinDTO">
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName 
+	from bulletin
+	</select>
+	
+	
+
+
+</mapper>
+
+
