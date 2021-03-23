@@ -91,6 +91,7 @@
    
     </div>
 
+    <div class="arrowup__btn"><i class="fas fa-arrow-alt-circle-up"></i></div>
 
 
 </body>

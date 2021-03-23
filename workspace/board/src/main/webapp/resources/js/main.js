@@ -1,6 +1,6 @@
 'user script';
-const arrowup__btn = document.querySelector('.arrowup__btn');
-const header__logo = document.querySelector('.header__logo');
+var arrowup__btn = document.querySelector('.arrowup__btn');
+var header__logo = document.querySelector('.header__logo');
 
 arrowup__btn.addEventListener('click',()=>{
     header__logo.scrollIntoView({behavior:"smooth"});
@@ -16,7 +16,7 @@ $(document).ready(function(){
         
         $.ajax({            
             type:'GET',
-            url:'${pageContext.request.contextPath}/bulletin/listView',
+            url:'listView',
             dataType:'JSON',
             success : function(obj) {
                 console.log('성공');
