@@ -16,7 +16,7 @@ $(document).ready(function(){
         
         $.ajax({            
             type:'GET',
-            url:'listView',
+            url:'bulletin/listView',
             dataType:'JSON',
             success : function(obj) {
                 console.log('성공');
