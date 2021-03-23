@@ -53,6 +53,7 @@ $(document).ready(function(){
             <span class="container__board__date">${bltDate}</span>
             <span class="container__board__cnt"><i class="fas fa-eye"></i>${bltCnt}</span>
             <span class="container__board__like"><i class="fas fa-grin-hearts"></i>${bltLike}</span>`; 
+            container__board.appendChild(itemRow);
             } 
             
         } else {
@@ -60,5 +61,5 @@ $(document).ready(function(){
             console.log('게시글이없다');
         }
         
-        container__board.appendChild(itemRow);
+ 
     }
