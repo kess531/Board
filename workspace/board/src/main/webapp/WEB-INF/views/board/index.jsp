@@ -67,15 +67,9 @@
             </div>
 
             <div class="container__board">
-                <div class="container__board__list">
-                <span class="container__board__title">
-                    <span class="container__board__type">공지</span>
-                    <a href="contentview">제목입니다!!</a> </span>
-                <span class="container__board__writer">김덕자</span>
-                <span class="container__board__date">2021.02.20</span>
-                <span class="container__board__cnt"><i class="fas fa-eye"></i>122</span>
-                <span class="container__board__like"><i class="fas fa-grin-hearts"></i>3</span>
-                </div>
+                <ul class="container__board__list">
+                
+                </ul>
                 <div class="container__board__paging">
                     <a class="paging__on" href="#">1</a>
                     <a class="paging" href="#">2</a>
