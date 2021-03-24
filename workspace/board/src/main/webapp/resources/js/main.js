@@ -1,4 +1,4 @@
-d'user script';
+'user script';
 var arrowup__btn = document.querySelector('.arrowup__btn');
 var header__logo = document.querySelector('.header__logo');
 
@@ -7,7 +7,7 @@ arrowup__btn.addEventListener('click',()=>{
 })
 
    
-const container__board__list = document.querySelector('.container__board__list');
+const container__board__listview = document.querySelector('.container__board__listview');
 $(document).ready(function(){
     getBoardList();
 });
@@ -46,16 +46,15 @@ $(document).ready(function(){
                 const itemRow =document.createElement('li');
                 itemRow.setAttribute('class','item__row');
                 itemRow.innerHTML=`
-                <div class="container__board__content>
+                <div class="container__board__list">
                 <span class="container__board__title">
                 <span class="container__board__type">${bltType}</span>
                 <a href="contentview">${bltTitle}</a> </span>
             <span class="container__board__writer">${memberName}</span>
             <span class="container__board__date">${bltDate}</span>
             <span class="container__board__cnt"><i class="fas fa-eye"></i>${bltCnt}</span>
-            <span class="container__board__like"><i class="fas fa-grin-hearts"></i>${bltLike}</span></div>`; 
-            
-            container__board__list.appendChild(itemRow);
+            <span class="container__board__like"><i class="fas fa-grin-hearts"></i>${bltLike}</span></div>`;  
+            container__board__listview.appendChild(itemRow);
             } 
             
         } else {

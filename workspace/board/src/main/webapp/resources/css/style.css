@@ -38,13 +38,13 @@ textarea {
   resize: none;
 }
 a {
-  /* a태그 밑에 있는 밑줄 제거 */
+  /* a�깭洹� 諛묒뿉 �엳�뒗 諛묒쨪 �젣嫄� */
   text-decoration: none;
   color: var(--color-black);
 }
 
 ul {
-  /* ul 스타일 제거 */
+  /* ul �뒪���씪 �젣嫄� */
   list-style: none;
   padding-left: 0;
 }
@@ -83,6 +83,10 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+span {
+  display: block;
 }
 
 /* Header */
@@ -145,7 +149,7 @@ button {
   transform: scale(1.2);
 }
 
-/* 검색창 */
+/* 寃��깋李� */
 
 .container {
 }
@@ -169,10 +173,9 @@ button {
   height: 50px;
 }
 
-/* 게시판 */
+/* 寃뚯떆�뙋 */
 
 .container__board {
-  display: table;
   padding-top: 60px;
   width: 1300px;
   height: 1200px;
@@ -181,7 +184,8 @@ button {
 }
 
 .container__board__list {
-  display: table-row;
+  width: 1300px;
+  height: 54px;
   border: solid 3px black;
   height: 54px;
   font-size: var(--font-small);
@@ -197,23 +201,22 @@ button {
 }
 
 .container__board__title {
-  display: table-cell;
-  margin: 0px 30px;
+  margin-right: 20px;
   font-size: var(--font-regular);
 }
 
 .container__board__writer {
-  display: table-cell;
+  margin-right: 20px;
 }
 
 .container__board__date {
-  display: table-cell;
+  margin-right: 20px;
 }
 .container__board__cnt {
-  display: table-cell;
+  margin-right: 20px;
 }
 .container__board__like {
-  display: table-cell;
+  margin-right: 20px;
 }
 
 .container__board__paging {

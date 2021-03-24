@@ -85,6 +85,9 @@ button {
   outline: none;
 }
 
+span {
+  display: block;
+}
 /* Header */
 #header {
   display: flex;
@@ -197,23 +200,22 @@ button {
 }
 
 .container__board__title {
-  display: table-cell;
   margin: 0px 30px;
   font-size: var(--font-regular);
 }
 
 .container__board__writer {
-  display: table-cell;
+  margin: 0px 30px;
 }
 
 .container__board__date {
-  display: table-cell;
+  margin: 0px 30px;
 }
 .container__board__cnt {
-  display: table-cell;
+  margin: 0px 30px;
 }
 .container__board__like {
-  display: table-cell;
+  margin: 0px 30px;
 }
 
 .container__board__paging {

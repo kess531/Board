@@ -67,7 +67,7 @@
             </div>
 
             <div class="container__board">
-                <ul class="container__board__list">
+                <ul class="container__board__listview">
                 
                 </ul>
                 <div class="container__board__paging">
