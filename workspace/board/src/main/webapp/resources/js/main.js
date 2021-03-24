@@ -7,7 +7,7 @@ arrowup__btn.addEventListener('click',()=>{
 })
 
    
-const container__board = document.querySelector('.container__board');
+const container__board__list = document.querySelector('.container__board__list');
 $(document).ready(function(){
     getBoardList();
 });
@@ -44,7 +44,7 @@ $(document).ready(function(){
                 var bltCnt     = list.list[i].bltCnt; 
                 var memberName     = list.list[i].memberName; 
                 const itemRow =document.createElement('div');
-                itemRow.setAttribute('class','container__board__list');
+                itemRow.setAttribute('class','container__board__content');
                 itemRow.innerHTML=`
                 <span class="container__board__title">
                 <span class="container__board__type">${bltType}</span>
@@ -53,7 +53,7 @@ $(document).ready(function(){
             <span class="container__board__date">${bltDate}</span>
             <span class="container__board__cnt"><i class="fas fa-eye"></i>${bltCnt}</span>
             <span class="container__board__like"><i class="fas fa-grin-hearts"></i>${bltLike}</span>`; 
-            container__board.appendChild(itemRow);
+            container__board__list.appendChild(itemRow);
             } 
             
         } else {
