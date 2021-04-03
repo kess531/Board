@@ -27,16 +27,7 @@ public class memberController {
 	memberService memberService;
 	
 	
-//	테스트용 지울것!
-	@RequestMapping("/list.do")
-	public String view(Model model) {
-		List<memberDTO> list = memberService.memberList();
-		
-		model.addAttribute("list",list);
-		
-		return "member/list";
-	}
-	
+
 //	
 	@RequestMapping(value="/join.do")
 	public String gojoin(memberDTO dto) {
@@ -82,7 +73,7 @@ public class memberController {
 		HttpSession session = request.getSession();
 		String loginCheck = memberService.login(dto);
 		  if(loginCheck== null) {
-		System.out.println("로그인실패");
+			  System.out.println("로그인실패");
 		  session.setAttribute("member", null); 
 		  rttr.addFlashAttribute("msg",false);
 		  System.out.println(rttr);

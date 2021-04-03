@@ -179,18 +179,20 @@ span {
   padding-top: 60px;
   width: 1300px;
   height: 1200px;
+  text-align: left;
   margin: auto;
   vertical-align: middle;
 }
 
 .container__board__list {
-  width: 1300px;
-  height: 54px;
-  border: solid 3px black;
-  height: 54px;
+  border: none;
+  display: flex;
+  margin-bottom: 10px;
+  border: none;
   font-size: var(--font-small);
 }
 .container__board__type {
+  height: 50%;
   position: relative;
   border: solid 1px black;
   color: var(--color-white);
@@ -203,20 +205,25 @@ span {
 .container__board__title {
   margin-right: 20px;
   font-size: var(--font-regular);
+  width: 600px;
 }
 
 .container__board__writer {
   margin-right: 20px;
+  width: 200px;
 }
 
 .container__board__date {
   margin-right: 20px;
+  width: 100px;
 }
 .container__board__cnt {
   margin-right: 20px;
+  width: 50px;
 }
 .container__board__like {
   margin-right: 20px;
+  width: 50px;
 }
 
 .container__board__paging {

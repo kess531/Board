@@ -20,4 +20,26 @@ public class bulletinServiceImpl implements bulletinService {
 		return bulletindao.bulletinList();
 	}
 
+	@Override
+	public List<bulletinDTO> bulletinSearchTitle(String keyword) {
+		return bulletindao.bulletinSearchTitle(keyword);
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchMember(String keyword) {
+		return bulletindao.bulletinSearchMember(keyword);
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchContent(String keyword) {
+		return bulletindao.bulletinSearchContent(keyword);
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchTotal(String keyword) {
+		return bulletindao.bulletinSearchTotal(keyword);
+	}
+	
+	
+
 }

@@ -6,12 +6,6 @@ apper 3.0//EN"
 
 
 <mapper namespace="member">
-	<select id="memberList" resultType="com.spring.board.member.dto.memberDTO">
-	select * 
-	from member
-	</select>
-	
-	
 	<insert id="memberInsert" parameterType="com.spring.board.member.dto.memberDTO">
 	<selectKey keyProperty="memberNo" resultType="integer" order="BEFORE">
 	select seq_member.nextval from dual

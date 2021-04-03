@@ -19,5 +19,29 @@ public class bulletinDAOImpl implements bulletinDAO {
 	List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinList"); 
 		return list;
 	}
+	
+	@Override
+	public List<bulletinDTO> bulletinSearchTitle(String keyword) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTitle",keyword);
+		return list;
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchMember(String keyword) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchMember",keyword);
+		return list;
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchContent(String keyword) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchContent",keyword);
+		return list;
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinSearchTotal(String keyword) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTotal",keyword);
+		return list;
+	}
 
 }

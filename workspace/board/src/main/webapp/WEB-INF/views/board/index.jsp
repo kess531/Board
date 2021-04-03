@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
-   <script src="/resources/js/main.js" defer  ></script>
+   <script src="/resources/js/main.js?ver=36" defer ></script>
     </head>
 <body>
 
@@ -53,15 +53,15 @@
                 </ul>
                 </section>
                 <section class="container__subTitle__search">
-                    <form class="container__subTitle__form" action="GET" >
-                        <select class="container__subTitle__select" name="search" >
+                    <form class="container__subTitle__form" method="GET">
+                       <select class="container__subTitle__select" name="clsfcselect">
                             <option class="container__subTitle__select__item" value="title">제목</option>
-                            <option value="contents">내용</option>
-                            <option value="writer">작성자</option>
-                            <option value="titlecontents">제목+내용</option>
+                            <option class="container__subTitle__select__item" value="content">내용</option>
+                            <option class="container__subTitle__select__item" value="writer">작성자</option>
+                            <option class="container__subTitle__select__item" value="total">제목+내용</option>
                         </select>
                         <input class="container__subTitle__text" type="text" placeholder="검색어를 입력해 주세요" name="keyword">
-                        <input class="container__subTitle__btn" type="submit" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$">
+                        <input class="container__subTitle__btn" type="button" value="검색" pattern="[ㄱ-ㅎ|ㅏ-ㅣ|가-힣a-zA-Z0-9|\s]*$">
                     </form>
                 </section>
             </div>

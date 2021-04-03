@@ -6,14 +6,44 @@ apper 3.0//EN"
 
 
 <mapper namespace="bulletin">
+	<!-- 게시판 불러오기  -->
 	<select id="bulletinList" resultType="com.spring.board.bulletin.dto.bulletinDTO">
 	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName 
 	from bulletin
+	order by bltDate Desc
 	</select>
 	
+	<!-- 제목 검색 -->
+	<select id="bulletinSearchTitle" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
+	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	from bulletin
+	where bltTitle Like '%' || #{keyword} || '%'
+	order by bltDate Desc
+	</select>
 	
-
-
+	<!-- 작성자 검색 -->
+	<select id="bulletinSearchMember" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
+	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	from bulletin
+	where memberName Like '%' || #{keyword} || '%'
+	order by bltDate Desc
+	</select>
+	
+	<!-- 내용 검색 -->
+	<select id="bulletinSearchContent" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
+	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	from bulletin
+	where bltContent Like '%' || #{keyword} || '%'
+	order by bltDate Desc
+	</select>
+	
+	<!-- 제목 + 내용 검색 -->
+	<select id="bulletinSearchTotal" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
+	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	from bulletin
+	where bltTitle Like '%' || #{keyword} || '%' and bltContent Like '%' || #{keyword} || '%'  
+	order by bltDate Desc
+	</select>
 </mapper>
 
 

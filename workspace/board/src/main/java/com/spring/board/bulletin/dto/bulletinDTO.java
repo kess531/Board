@@ -1,6 +1,5 @@
 package com.spring.board.bulletin.dto;
 
-import java.util.Date;
 
 public class bulletinDTO {
 	
