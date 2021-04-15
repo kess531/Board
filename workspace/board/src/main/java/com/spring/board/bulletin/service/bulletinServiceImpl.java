@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.board.bulletin.dao.bulletinDAO;
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.utill.Criteria;
 
 @Service
 public class bulletinServiceImpl implements bulletinService {
@@ -15,29 +16,55 @@ public class bulletinServiceImpl implements bulletinService {
 	private bulletinDAO bulletindao;
 	
 	@Override
-	public List<bulletinDTO> bulletinList() {
+	public List<bulletinDTO> bulletinList(Criteria criteria) {
 	
-		return bulletindao.bulletinList();
+		return bulletindao.bulletinList(criteria);
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchTitle(String keyword) {
-		return bulletindao.bulletinSearchTitle(keyword);
+	public List<bulletinDTO> bulletinSearchTitle(Criteria criteria) {
+		return bulletindao.bulletinSearchTitle(criteria);
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchMember(String keyword) {
-		return bulletindao.bulletinSearchMember(keyword);
+	public List<bulletinDTO> bulletinSearchMember(Criteria criteria) {
+		return bulletindao.bulletinSearchMember(criteria);
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchContent(String keyword) {
-		return bulletindao.bulletinSearchContent(keyword);
+	public List<bulletinDTO> bulletinSearchContent(Criteria criteria) {
+		return bulletindao.bulletinSearchContent(criteria);
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchTotal(String keyword) {
-		return bulletindao.bulletinSearchTotal(keyword);
+	public List<bulletinDTO> bulletinSearchTotal(Criteria criteria) {
+		return bulletindao.bulletinSearchTotal(criteria);
+	}
+
+	@Override
+	public int listCountCriteria() {
+		return bulletindao.listCountCriteria();
+	}
+
+	@Override
+	public int listTitleCountCriteria(Criteria criteria) {
+		return bulletindao.listTitleCountCriteria(criteria);
+	}
+
+	@Override
+	public int listMemberCountCriteria(Criteria criteria) {
+	
+		return bulletindao.listMemberCountCriteria(criteria);
+	}
+
+	@Override
+	public int listContentCountCriteria(Criteria criteria) {
+		return bulletindao.listContentCountCriteria(criteria);
+	}
+
+	@Override
+	public int listTotalCountCriteria(Criteria criteria) {
+		return bulletindao.listTotalCountCriteria(criteria);
 	}
 	
 	

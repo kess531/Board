@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.utill.Criteria;
 
 @Repository
 public class bulletinDAOImpl implements bulletinDAO {
@@ -15,33 +16,67 @@ public class bulletinDAOImpl implements bulletinDAO {
 	
 	private static final String namespace ="bulletin.";
 	@Override
-	public List<bulletinDTO> bulletinList() {
-	List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinList"); 
+	public List<bulletinDTO> bulletinList(Criteria criteria) {
+		System.out.println("dao´Ü" + criteria.getPageStart());
+	List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinList",criteria); 
 		return list;
 	}
 	
 	@Override
-	public List<bulletinDTO> bulletinSearchTitle(String keyword) {
-		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTitle",keyword);
+	public List<bulletinDTO> bulletinSearchTitle(Criteria criteria) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTitle",criteria);
 		return list;
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchMember(String keyword) {
-		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchMember",keyword);
+	public List<bulletinDTO> bulletinSearchMember(Criteria criteria) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchMember",criteria);
 		return list;
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchContent(String keyword) {
-		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchContent",keyword);
+	public List<bulletinDTO> bulletinSearchContent(Criteria criteria) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchContent",criteria);
 		return list;
 	}
 
 	@Override
-	public List<bulletinDTO> bulletinSearchTotal(String keyword) {
-		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTotal",keyword);
+	public List<bulletinDTO> bulletinSearchTotal(Criteria criteria) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinSearchTotal",criteria);
 		return list;
 	}
+
+	@Override
+	public int listCountCriteria() {
+		int listCountCriteria = sqlsession.selectOne(namespace + "listCountCriteria");
+		return listCountCriteria;
+	}
+
+	@Override
+	public int listTitleCountCriteria(Criteria criteria) {
+		System.out.println(criteria.getKeyword());
+		int listTitleCountCriteria = sqlsession.selectOne(namespace + "listTitleCountCriteria",criteria);
+		return listTitleCountCriteria;
+	}
+
+	@Override
+	public int listMemberCountCriteria(Criteria criteria) {
+		int listMemberCountCriteria = sqlsession.selectOne(namespace + "listMemberCountCriteria",criteria);
+		return listMemberCountCriteria;
+	}
+
+	@Override
+	public int listContentCountCriteria(Criteria criteria) {
+		int listContentCountCriteria = sqlsession.selectOne(namespace + "listContentCountCriteria",criteria);
+		return listContentCountCriteria;
+	}
+
+	@Override
+	public int listTotalCountCriteria(Criteria criteria) {
+		int listTotalCountCriteria = sqlsession.selectOne(namespace + "listTotalCountCriteria",criteria);
+		return listTotalCountCriteria;
+	}
+
+	
 
 }

@@ -3,18 +3,26 @@ package com.spring.board.bulletin.dao;
 import java.util.List;
 
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.utill.Criteria;
 
 public interface bulletinDAO {
 	//게시글 불러오기
-	public List<bulletinDTO> bulletinList();
+	public List<bulletinDTO> bulletinList(Criteria criteria);
 	//제목 검색
-	public List<bulletinDTO> bulletinSearchTitle(String keyword);
+	public List<bulletinDTO> bulletinSearchTitle(Criteria criteria);
 	//작성자 검색
-	public List<bulletinDTO> bulletinSearchMember(String keyword);
+	public List<bulletinDTO> bulletinSearchMember(Criteria criteria);
 	//내용 검색
-	public List<bulletinDTO> bulletinSearchContent(String keyword);
+	public List<bulletinDTO> bulletinSearchContent(Criteria criteria);
 	//제목+내용 검색
-	public List<bulletinDTO> bulletinSearchTotal(String keyword);
+	public List<bulletinDTO> bulletinSearchTotal(Criteria criteria);
+	
+	//페이징
+	public int listCountCriteria();
+	public int listTitleCountCriteria(Criteria criteria);
+	public int listMemberCountCriteria(Criteria criteria);
+	public int listContentCountCriteria(Criteria criteria);
+	public int listTotalCountCriteria(Criteria criteria);
 	
 	
 }

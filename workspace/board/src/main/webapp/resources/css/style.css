@@ -151,13 +151,15 @@ span {
 
 /* 寃��깋李� */
 
-.container {
+.container__subTitle__form {
+  margin: 0px 0px 20px 10px;
 }
 
 .container__subTitle__select {
   width: 100px;
   height: 50px;
   font-size: var(--font-regular);
+  margin: 20px 0px 0px 20px;
 }
 
 .container__subTitle__text {
@@ -227,14 +229,19 @@ span {
 }
 
 .container__board__paging {
+  display: flex;
   position: absolute;
-  top: 100%;
+  top: 1000px;
   left: 50%;
+}
+
+.paging {
+  margin: 0px 8px;
 }
 
 .btn__wirte {
   position: absolute;
-  top: 100%;
+  top: 1000px;
   left: 80%;
   width: 200px;
   height: 50px;

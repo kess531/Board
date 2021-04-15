@@ -7,42 +7,108 @@ apper 3.0//EN"
 
 <mapper namespace="bulletin">
 	<!-- 게시판 불러오기  -->
-	<select id="bulletinList" resultType="com.spring.board.bulletin.dto.bulletinDTO">
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName 
+	<select id="bulletinList" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
+
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
 	from bulletin
-	order by bltDate Desc
+		
+	order by bltNo DESC
+	)
+	<![CDATA[
+	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	]]>
 	</select>
 	
 	<!-- 제목 검색 -->
-	<select id="bulletinSearchTitle" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
-	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	<select id="bulletinSearchTitle" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	(
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
 	from bulletin
 	where bltTitle Like '%' || #{keyword} || '%'
-	order by bltDate Desc
+	order by bltNo DESC
+	)
+	<![CDATA[
+	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	]]>
 	</select>
 	
 	<!-- 작성자 검색 -->
-	<select id="bulletinSearchMember" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
-	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	<select id="bulletinSearchMember" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	(
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
 	from bulletin
 	where memberName Like '%' || #{keyword} || '%'
-	order by bltDate Desc
+	order by bltNo DESC
+	)
+	<![CDATA[
+	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	]]>
 	</select>
 	
 	<!-- 내용 검색 -->
-	<select id="bulletinSearchContent" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
-	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	<select id="bulletinSearchContent" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	(
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
 	from bulletin
 	where bltContent Like '%' || #{keyword} || '%'
-	order by bltDate Desc
+	order by bltNo DESC
+	)
+	<![CDATA[
+	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	]]>
 	</select>
 	
 	<!-- 제목 + 내용 검색 -->
-	<select id="bulletinSearchTotal" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="String">
-	select bltTitle, bltContent, bltType, bltDate, bltLike,bltCnt,memberName 
+	<select id="bulletinSearchTotal" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	(
+	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
 	from bulletin
-	where bltTitle Like '%' || #{keyword} || '%' and bltContent Like '%' || #{keyword} || '%'  
-	order by bltDate Desc
+	where bltTitle Like '%' || #{keyword} || '%' AND bltContent Like '%' || #{keyword} || '%'
+	order by bltNo DESC
+	)
+	<![CDATA[
+	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	]]>
+	</select>
+	
+	<!-- 페이징(게시글 총 갯수) -->
+	<select id="listCountCriteria" resultType="int">
+	select count(*)
+	from bulletin
+	</select>
+	
+	<!-- 페이징(제목 검색 갯수)  -->
+	<select id="listTitleCountCriteria" resultType="int" parameterType="com.spring.board.bulletin.utill.Criteria">
+	select count(*)
+	from bulletin
+	where bltTitle Like '%' || #{keyword} || '%'
+	</select>
+	
+	<!-- 페이징(작성자 검색 갯수)  -->
+	<select id="listMemberCountCriteria" resultType="int">
+	select count(*)
+	from bulletin
+	where memberName Like '%' || #{keyword} || '%'
+	</select>
+	
+	<!-- 페이징(작성자 내용 갯수)  -->
+	<select id="listContentCountCriteria" resultType="int">
+	select count(*)
+	from bulletin
+	where bltContent Like '%' || #{keyword} || '%'
+	</select>
+	
+	<!-- 페이징(작성자 제목+내용 갯수)  -->
+	<select id="listTotalCountCriteria" resultType="int">
+	select count(*)
+	from bulletin
+	where bltTitle Like '%' || #{keyword} || '%' AND bltContent Like '%' || #{keyword} || '%'
 	</select>
 </mapper>
 
