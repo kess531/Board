@@ -48,13 +48,13 @@ public class memberController {
 			for( ObjectError error : list ) {
 				System.out.println(error + "ㅋㅋ");
 			}
-			return "/member/login.do";
+			return "member/join";
 		}
 		
 		
 		memberService.memberInsert(dto);
 		
-		return "board/index";
+		return "redirect:/";
 				
 	}
 	
@@ -82,7 +82,7 @@ public class memberController {
 		  } else {
 			  System.out.println("로그인 성공"); 
 			  session.setAttribute("member", loginCheck);
-			  return "board/index";
+			  return "redirect:/";
 		  }
 		
 		

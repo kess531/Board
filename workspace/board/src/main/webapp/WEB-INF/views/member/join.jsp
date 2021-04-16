@@ -38,8 +38,7 @@
                         </span>
                         </div>
                         <form:password path="memberPw" class="fieldset__textbox" />
-      					<!--<div class="join__head">패스워드 확인</div>
-                        <input type="password" name="joinPwcheck" class="fieldset__textbox"> -->
+      					
                         </div>
                         <div class="join__fieldset__name">
         				<div class="join__head">

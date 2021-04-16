@@ -28,7 +28,7 @@
                     <div class="login__fieldset__pw">
                     <input type="password" name="memberPw" class="fieldset__textbox" placeholder="패스워드">
                     </div>
-                    <div class="joingo"><a href="member/join.do">회원가입</a></div>
+                    <div class="joingo"><a href="join.do">회원가입</a></div>
                     <div class="login__fieldset__btn">
                 <input class="fieldset__submit" type="submit" value="로그인">
                     </div>   

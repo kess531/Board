@@ -34,7 +34,7 @@
             <li class="navbar__menu__item" data-link="#jobs">구직</li>
             <c:if test="${member!= null}">
             <li>${member}님 환영합니다. 이건 나중에 지우자</li>
-			<li class="navbar__menu__item" data-link="#logaut"><a href="logout">로그아웃</a></li>
+			<li class="navbar__menu__item" data-link="#logaut"><a href="member/logout">로그아웃</a></li>
 			</c:if>
 			<c:if test="${member==null}">
             <li class="navbar__menu__item" ><a href="member/login.do">로그인</a></li>

@@ -82,5 +82,7 @@ public class bulletinController {
 		 
 		return map;
 	}
+	
+	public String contentview
 
 }
