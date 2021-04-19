@@ -15,7 +15,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=16"  />
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=16"/>
 	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=73" defer ></script>
 </head>
 <body>
@@ -58,7 +58,7 @@
                     </form>
                 </section>
             </div>
-
+            
             <div class="container__board">
                 <ul class="container__board__listview">
                 
@@ -66,12 +66,12 @@
                 <div class="container__board__paging">
                     
                 </div>
-                <button class="btn__wirte">글쓰기</button>
-            </div>
-            
+                 <c:if test="${member!= null}">
+                <button class="btn__wirte" onclick="location.href='bulletin/write.do'">글쓰기</button>
+                </c:if>
+            	</div>
         </div>
     </div>
-
     <div class="arrowup__btn"><i class="fas fa-arrow-alt-circle-up"></i></div>
 
 

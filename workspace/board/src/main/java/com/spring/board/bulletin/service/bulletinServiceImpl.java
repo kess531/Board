@@ -66,6 +66,12 @@ public class bulletinServiceImpl implements bulletinService {
 	public int listTotalCountCriteria(Criteria criteria) {
 		return bulletindao.listTotalCountCriteria(criteria);
 	}
+
+	@Override
+	public void bulletinWrite(bulletinDTO dto) {
+		
+		bulletindao.bulletinWrite(dto);
+	}
 	
 	
 

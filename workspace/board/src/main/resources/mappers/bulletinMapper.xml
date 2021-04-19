@@ -110,6 +110,25 @@ apper 3.0//EN"
 	from bulletin
 	where bltTitle Like '%' || #{keyword} || '%' AND bltContent Like '%' || #{keyword} || '%'
 	</select>
+	
+	<insert id="bulletinWrite" parameterType="com.spring.board.bulletin.dto.bulletinDTO">
+	<selectKey keyProperty="bltNo" resultType="integer" order="BEFORE">
+	select seq_blt.nextval from dual
+	</selectKey>
+	insert into bulletin(bltNo,bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName)
+	values(
+	#{bltNo},
+	#{bltTitle},
+	#{bltContent},
+	#{bltType},
+	<![CDATA[
+	TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+	]]>
+	#{bltLike},
+	#{bltCnt},
+	#{memberName}	
+	) 
+	</insert>
 </mapper>
 
 

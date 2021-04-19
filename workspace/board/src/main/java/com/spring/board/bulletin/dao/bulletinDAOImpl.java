@@ -77,6 +77,11 @@ public class bulletinDAOImpl implements bulletinDAO {
 		return listTotalCountCriteria;
 	}
 
+	@Override
+	public void bulletinWrite(bulletinDTO dto) {
+		sqlsession.insert(namespace + "bulletinWrite",dto);
+	}
+
 	
 
 }

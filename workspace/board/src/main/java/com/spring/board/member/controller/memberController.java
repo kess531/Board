@@ -28,7 +28,7 @@ public class memberController {
 	
 	
 
-//	
+//
 	@RequestMapping(value="/join.do")
 	public String gojoin(memberDTO dto) {
 		
@@ -46,7 +46,7 @@ public class memberController {
 			// 에러를 List로 저장
 			List<ObjectError> list = result.getAllErrors();
 			for( ObjectError error : list ) {
-				System.out.println(error + "ㅋㅋ");
+				System.out.println("에러 목록 : "  + error);
 			}
 			return "member/join";
 		}

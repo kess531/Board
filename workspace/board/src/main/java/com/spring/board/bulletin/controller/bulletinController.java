@@ -26,14 +26,14 @@ public class bulletinController {
 	@Autowired
 	bulletinService bulletinservice;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String goview(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "board/index";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/listView")
 	public @ResponseBody HashMap<String, Object> listView(HttpServletRequest request,
-			@ModelAttribute("cri") Criteria cri) throws IOException {
+		@ModelAttribute("cri") Criteria cri) throws IOException {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		PageMaker pagemaker = new PageMaker();
 		pagemaker.setCri(cri);
@@ -61,16 +61,14 @@ public class bulletinController {
 		 }
 		 
 		 else if(request.getParameter("clsfcselect").equals("content")) {
-		 List<bulletinDTO>
-		 list = bulletinservice.bulletinSearchContent(cri);
+		 List<bulletinDTO> list = bulletinservice.bulletinSearchContent(cri);
 		 pagemaker.setTotalCount(bulletinservice.listContentCountCriteria(cri)); // ÃÑ°Ô½Ã±Û °¹¼ö
 		 map.put("pagemaker", pagemaker);
 		 map.put("list", list);  
 		 } 
 		 
 		 else if(request.getParameter("clsfcselect").equals("total")) {
-		 List<bulletinDTO>
-		 list = bulletinservice.bulletinSearchTotal(cri);
+		 List<bulletinDTO> list = bulletinservice.bulletinSearchTotal(cri);
 		 pagemaker.setTotalCount(bulletinservice.listTotalCountCriteria(cri)); // ÃÑ°Ô½Ã±Û °¹¼ö
 		 map.put("pagemaker", pagemaker);
 		 map.put("list", list);  
@@ -83,6 +81,19 @@ public class bulletinController {
 		return map;
 	}
 	
-	public String contentview
+	@RequestMapping(value="/write.do")
+	public String gowrite() {
+		
+		return "bulletin/write";
+	}
+	
+	@RequestMapping(value="/contentWrite")
+	public String contentWrite(bulletinDTO dto) throws Exception  {
+		
+		bulletinservice.bulletinWrite(dto);
+		
+		return "redirect:/";
+		
+	}
 
 }

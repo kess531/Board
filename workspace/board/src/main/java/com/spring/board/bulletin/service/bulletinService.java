@@ -24,4 +24,7 @@ public interface bulletinService {
 		public int listMemberCountCriteria(Criteria criteria);
 		public int listContentCountCriteria(Criteria criteria);
 		public int listTotalCountCriteria(Criteria criteria);
+		
+		//±€ ¿€º∫
+		public void bulletinWrite(bulletinDTO dto);
 }

@@ -370,7 +370,7 @@ span {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
 }
-.container__write__btn2 {
+.container__write__list {
   width: 140px;
   height: 100%;
 }

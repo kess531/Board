@@ -24,5 +24,7 @@ public interface bulletinDAO {
 	public int listContentCountCriteria(Criteria criteria);
 	public int listTotalCountCriteria(Criteria criteria);
 	
+	//±€ ¿€º∫
+	public void bulletinWrite(bulletinDTO dto);
 	
 }
