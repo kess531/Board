@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
@@ -15,11 +15,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=16"/>
-	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=73" defer ></script>
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=18"/>
+	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=82" defer ></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-
+  
     <div class="wrap">
         <header id="header">
         <div class="header__logo">
@@ -60,6 +61,7 @@
             </div>
             
             <div class="container__board">
+                
                 <ul class="container__board__listview">
                 
                 </ul>
@@ -73,7 +75,11 @@
         </div>
     </div>
     <div class="arrowup__btn"><i class="fas fa-arrow-alt-circle-up"></i></div>
-
+    <c:if test="${msg==false}">
+        <script>
+            alert('로그인 후 이용해주세요');
+        </script>
+    </c:if>
 
 </body>
 </html>

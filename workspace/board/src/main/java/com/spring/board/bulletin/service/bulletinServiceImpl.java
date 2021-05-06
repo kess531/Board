@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.spring.board.bulletin.dao.bulletinDAO;
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.dto.commentDTO;
 import com.spring.board.bulletin.utill.Criteria;
+import com.spring.board.bulletin.utill.CriteriaCmt;
 
 @Service
 public class bulletinServiceImpl implements bulletinService {
@@ -71,6 +73,64 @@ public class bulletinServiceImpl implements bulletinService {
 	public void bulletinWrite(bulletinDTO dto) {
 		
 		bulletindao.bulletinWrite(dto);
+	}
+
+	@Override
+	public List<bulletinDTO> bulletinContentView(int bltNo) {
+	
+		return bulletindao.bulletinContentView(bltNo);
+	}
+
+	@Override
+	public void bulletinViewCnt(int bltNo) {
+		
+		bulletindao.bulletinViewCnt(bltNo);
+		
+	}
+
+	@Override
+	public void bulletinLikeCnt(int bltNo) {
+	
+		bulletindao.bulletinLikeCnt(bltNo);
+		
+	}
+
+	@Override
+	public String bulletinLikeSelect(int bltNo) {
+		
+		return bulletindao.bulletinLikeSelect(bltNo);
+	}
+
+	@Override
+	public void commentWrite(commentDTO dto) {
+		
+		bulletindao.commentWrite(dto);
+		
+	}
+
+	@Override
+	public List<commentDTO> commentList(CriteriaCmt cmt) {
+		
+		return bulletindao.commentList(cmt);
+	}
+
+	@Override
+	public int commentListCount(int bltNo) {
+		
+		return bulletindao.commentListCount(bltNo);
+	}
+
+	@Override
+	public void commentDelete(int cmtNo) {
+		
+		bulletindao.commentDelete(cmtNo);
+		
+	}
+
+	@Override
+	public String commentPwdSelect(int cmtNo) {
+		
+		return bulletindao.commentPwdSelect(cmtNo);
 	}
 	
 	

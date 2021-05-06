@@ -1,15 +1,22 @@
 package com.spring.board.bulletin.utill;
 
-public class Criteria {
-	
+public class CriteriaCmt {
 	private int page;
 	private int perPageNum;
-	private String keyword;
+	private int bltNo;
 	
 
-	public Criteria() {
+	public int getBltNo() {
+		return bltNo;
+	}
+
+	public void setBltNo(int bltNo) {
+		this.bltNo = bltNo;
+	}
+
+	public CriteriaCmt() {
 		this.page = 1;
-		this.perPageNum = 10;
+		this.perPageNum = 2;
 	}
 
 	public int getPage() {
@@ -43,19 +50,11 @@ public class Criteria {
 	
 	
 	
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Criteria [page = " + page + ",perPageNum = " + perPageNum + "]" + "PageStart" + getPageStart() + "keyword" +keyword;
+		return "CriteriaCmt [page = " + page + ",perPageNum = " + perPageNum + "]" + "PageStart" + getPageStart() ;
 	} 
-
 
 }

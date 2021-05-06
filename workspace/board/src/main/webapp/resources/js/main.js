@@ -1,6 +1,6 @@
 'user script';
-var arrowup__btn = document.querySelector('.arrowup__btn');
-var header__logo = document.querySelector('.header__logo');
+let arrowup__btn = document.querySelector('.arrowup__btn');
+let header__logo = document.querySelector('.header__logo');
 
     //arrowup버튼
 arrowup__btn.addEventListener('click',()=>{
@@ -33,7 +33,7 @@ $(document).ready(function(){
     //페이징
 container__board__paging.addEventListener('click',e=>{
     const targetid = e.target.dataset.id;
-
+    e.target.classList.remove('now__paging');
     if(targetid)
     {
         $.ajax({            
@@ -45,7 +45,7 @@ container__board__paging.addEventListener('click',e=>{
             dataType:'JSON',
             success : function(obj) {
                 console.log('검색성공');
-                
+                e.target.classList.add('now__paging');
                 getBoardListCallback(obj);                
             },           
             error : function(xhr, status, error) {
@@ -104,38 +104,27 @@ container__subTitle__text.addEventListener('keyup',()=>{
 function getBoardListCallback(obj){
 	 const container__board__listview =document.querySelector('.container__board__listview');
     container__board__listview.innerHTML='';    
-    var list = obj;
-    var listLen = list.list.length
+    let list = obj;
+    let listLen = list.list.length
 
 
    if(listLen >  0){
     container__board__paging.innerHTML='';
         for(let i=0; i<listLen; i++){
-            
-            var bltTitle        = list.list[i].bltTitle; 
-            var bltType         = list.list[i].bltType; 
-            var bltDate         = list.list[i].bltDate; 
-            var bltLike     = list.list[i].bltLike; 
-            var bltCnt     = list.list[i].bltCnt; 
-            var memberName     = list.list[i].memberName; 
+            let bltNo           = list.list[i].bltNo;
+            let bltTitle        = list.list[i].bltTitle; 
+            let bltType         = list.list[i].bltType; 
+            let bltDate         = list.list[i].bltDate; 
+            let bltLike     = list.list[i].bltLike; 
+            let bltCnt     = list.list[i].bltCnt; 
+            let memberName     = list.list[i].memberName; 
             const itemRow =document.createElement('li');
             itemRow.setAttribute('class','item__row');
-            if(bltType==='free')
-            {
-                bltType='자유';
-            }
-            else if(bltType==='qna')
-            {
-                bltType='질문';
-            }
-            else{
-                bltType='구직';
-            }
-            console.log(bltType);
+            bltType= bltTypeSelector(bltType);
             itemRow.innerHTML=`
             <div class="container__board__list">
             <span class="container__board__type">${bltType}</span>
-            <span class="container__board__title"><a href="contentview">${bltTitle}</a> </span>
+            <span class="container__board__title"><a href="bulletin/contentView?bltNo=${bltNo}">${bltTitle}</a> </span>
             <span class="container__board__writer">${memberName}</span>
             <span class="container__board__date">${bltDate}</span>
             <span class="container__board__cnt"><i class="fas fa-eye"></i>${bltCnt}</span>
@@ -145,12 +134,12 @@ function getBoardListCallback(obj){
         } 
         for(let i=list.pagemaker.startPage; i<=list.pagemaker.endPage; i++){
             const pagingBtn = document.createElement('p');
-            pagingBtn.setAttribute('class','paging');
+            pagingBtn.setAttribute('class','index__Paging');
             pagingBtn.setAttribute('data-id',`${i}`);
             pagingBtn.innerHTML=`${i}`;
             container__board__paging.appendChild(pagingBtn);
             
-          }
+        }
 
         }
         else if(listLen==0){
@@ -158,11 +147,26 @@ function getBoardListCallback(obj){
             container__board__paging.innerHTML='';
         }
         
-     else {
+        else {
         
         console.log('게시글이없습니다.');
     }
     
 
+}
+function bltTypeSelector(obj){
+    let type;
+    if(obj==='free')
+            {
+                type='자유';
+            }
+            else if(obj==='qna')
+            {
+                type='질문';
+            }
+            else{
+                type='구직';
+            }
+    return type;
 }
 

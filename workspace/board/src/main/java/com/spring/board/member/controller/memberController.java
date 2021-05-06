@@ -14,6 +14,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.board.member.dto.memberDTO;
@@ -68,15 +69,13 @@ public class memberController {
 	}
 	
 	@RequestMapping(value="/memberlogin" , method = RequestMethod.POST)
-	public String login(memberDTO dto, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
+	public String login(memberDTO dto, HttpServletRequest request) throws Exception{
 		
 		HttpSession session = request.getSession();
 		String loginCheck = memberService.login(dto);
 		  if(loginCheck== null) {
 			  System.out.println("로그인실패");
 		  session.setAttribute("member", null); 
-		  rttr.addFlashAttribute("msg",false);
-		  System.out.println(rttr);
 		  return "redirect:/member/login.do";
 		  
 		  } else {

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.dto.commentDTO;
 import com.spring.board.bulletin.utill.Criteria;
+import com.spring.board.bulletin.utill.CriteriaCmt;
 
 @Repository
 public class bulletinDAOImpl implements bulletinDAO {
@@ -17,7 +19,6 @@ public class bulletinDAOImpl implements bulletinDAO {
 	private static final String namespace ="bulletin.";
 	@Override
 	public List<bulletinDTO> bulletinList(Criteria criteria) {
-		System.out.println("dao단" + criteria.getPageStart());
 	List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinList",criteria); 
 		return list;
 	}
@@ -81,6 +82,66 @@ public class bulletinDAOImpl implements bulletinDAO {
 	public void bulletinWrite(bulletinDTO dto) {
 		sqlsession.insert(namespace + "bulletinWrite",dto);
 	}
+
+	@Override
+	public List<bulletinDTO> bulletinContentView(int bltNo) {
+		List<bulletinDTO> list = sqlsession.selectList(namespace + "bulletinContentView",bltNo);
+		System.out.println("dao단 리스트:" + list);
+		return list;
+	}
+
+	@Override
+	public void bulletinViewCnt(int bltNo) {
+		sqlsession.update(namespace+"bulletinViewCnt",bltNo);
+		
+	}
+
+	@Override
+	public void bulletinLikeCnt(int bltNo) {
+		sqlsession.update(namespace+"bulletinLikeCnt",bltNo);
+	
+	}
+
+	@Override
+	public String bulletinLikeSelect(int bltNo) {
+		
+		return sqlsession.selectOne(namespace+"bulletinLikeSelect",bltNo);
+	}
+
+	@Override
+	public void commentWrite(commentDTO dto) {
+		
+		sqlsession.insert(namespace+"commentWrite",dto);
+		
+	}
+
+	@Override
+	public List<commentDTO> commentList(CriteriaCmt cmt) {
+		List<commentDTO> list = sqlsession.selectList(namespace+"commentList",cmt);
+		return list;
+	}
+
+	@Override
+	public int commentListCount(int bltNo) {
+	int commentListCount = sqlsession.selectOne(namespace+"commentListCount",bltNo);
+	
+		return commentListCount;
+	}
+
+	@Override
+	public void commentDelete(int cmtNo) {
+		
+		sqlsession.delete(namespace + "commentDelete",cmtNo);
+		
+	}
+
+	@Override
+	public String commentPwdSelect(int cmtNo) {
+		String commentPwdSelect = sqlsession.selectOne(namespace+"commentPwdSelect",cmtNo);
+		System.out.println("호이~" + commentPwdSelect);
+		return commentPwdSelect;
+	}
+	
 
 	
 

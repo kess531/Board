@@ -17,18 +17,25 @@
     </head>
 <body>
    <div class="wrap">
-        <header id="header">
+    <header id="header">
         <div class="header__logo">
             <i class="fas fa-code"></i>
-            <a href="index.html">게시판</a>
+            <a href="/board/bulletin/index">게시판</a>
         </div>
+
         <ul class="header__navbar">
             <li class="navbar__menu__item active" data-link="#total">전체</li>
             <li class="navbar__menu__item" data-link="#free">자유</li>
             <li class="navbar__menu__item" data-link="#qna">질문</li>
             <li class="navbar__menu__item" data-link="#jobs">구직</li>
-            <li class="navbar__menu__item" data-link="#total"><a href="login.html">로그인</a></li>
-            <li class="navbar__menu__item" data-link="#free"><a href="join.html">회원가입</a></li>
+            <c:if test="${member!= null}">
+            <li>${member}님 환영합니다. 이건 나중에 지우자</li>
+            <li class="navbar__menu__item" data-link="#logaut"><a href="/board/member/logout">로그아웃</a></li>
+            </c:if>
+            <c:if test="${member==null}">
+            <li class="navbar__menu__item" ><a href="/board/member/login.do">로그인</a></li>
+            <li class="navbar__menu__item" ><a href="/board/member/join.do">회원가입</a></li>
+            </c:if>
         </ul>
         </header>
         <div id="container">
@@ -43,7 +50,7 @@
                         <option class="container__write__select__item" value="jobs">구직</option>
                     </select>
                     <input class="container__write__text" type="text" placeholder="제목을 입력해주세요." name="bltTitle">
-                    <input class="container__write__list"  type="button" value="목록">
+                    <input class="container__write__list" onclick="location.href='bulletin/index'"  type="button" value="목록">
                 </div>
                 <div class="container__write__form__writer">
                 <c:if test="${member!= null}">

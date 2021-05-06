@@ -11,69 +11,91 @@ apper 3.0//EN"
 
 	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
-	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
+    select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
+    from(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName
 	from bulletin
-		
-	order by bltNo DESC
+	order by bltNo DESC, bltDate DESC
+    
 	)
 	<![CDATA[
-	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
 	]]>
 	</select>
-	
 	<!-- 제목 검색 -->
 	<select id="bulletinSearchTitle" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
+    select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
+    from(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName
 	from bulletin
 	where bltTitle Like '%' || #{keyword} || '%'
-	order by bltNo DESC
+	order by bltNo DESC, bltDate DESC
+    
 	)
 	<![CDATA[
-	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
 	]]>
 	</select>
-	
 	<!-- 작성자 검색 -->
 	<select id="bulletinSearchMember" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+		select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
+    select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
+    from(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName
 	from bulletin
 	where memberName Like '%' || #{keyword} || '%'
-	order by bltNo DESC
+	order by bltNo DESC, bltDate DESC
+    
 	)
 	<![CDATA[
-	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
 	]]>
 	</select>
 	
 	<!-- 내용 검색 -->
 	<select id="bulletinSearchContent" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
+    select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
+    from(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName
 	from bulletin
 	where bltContent Like '%' || #{keyword} || '%'
-	order by bltNo DESC
+	order by bltNo DESC, bltDate DESC
+    
 	)
 	<![CDATA[
-	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
 	]]>
 	</select>
 	
 	<!-- 제목 + 내용 검색 -->
 	<select id="bulletinSearchTotal" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
-	select bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName,ROWNUM rn 
+    select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
+    from(
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName
 	from bulletin
 	where bltTitle Like '%' || #{keyword} || '%' AND bltContent Like '%' || #{keyword} || '%'
-	order by bltNo DESC
+	order by bltNo DESC, bltDate DESC
+    
 	)
 	<![CDATA[
-	where rn between #{pageStart}+1 and  #{pageStart}+10 
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
 	]]>
 	</select>
 	
@@ -111,6 +133,7 @@ apper 3.0//EN"
 	where bltTitle Like '%' || #{keyword} || '%' AND bltContent Like '%' || #{keyword} || '%'
 	</select>
 	
+	<!-- 글 작성  -->
 	<insert id="bulletinWrite" parameterType="com.spring.board.bulletin.dto.bulletinDTO">
 	<selectKey keyProperty="bltNo" resultType="integer" order="BEFORE">
 	select seq_blt.nextval from dual
@@ -122,13 +145,93 @@ apper 3.0//EN"
 	#{bltContent},
 	#{bltType},
 	<![CDATA[
-	TO_CHAR(SYSDATE,'YYYY-MM-DD'),
+	TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI,SS'),
 	]]>
 	#{bltLike},
 	#{bltCnt},
 	#{memberName}	
 	) 
 	</insert>
+	
+	<!-- 컨텐츠 확인 -->
+	<select id="bulletinContentView" resultType="com.spring.board.bulletin.dto.bulletinDTO">
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName 	
+	from bulletin		
+	where bltNo = #{bltNo}
+	</select>
+	
+	<!-- 조회수 증가  -->
+	<update id="bulletinViewCnt">
+	update bulletin set bltCnt = bltCnt +1 where bltNo = #{bltNo}
+	</update>
+	
+	<update id="bulletinLikeCnt">
+	update bulletin set bltLike = bltLike +1 where bltNo = #{bltNo}
+	</update>
+	<select id="bulletinLikeSelect" resultType="String">
+	select bltLike 
+	from bulletin
+	 where bltNo = #{bltNo}
+	</select>
+	
+	
+	<!-- 리플 작성  -->
+	<insert id="commentWrite" >
+	<selectKey keyProperty="cmtNo" resultType="integer" order="BEFORE">
+	select seq_cmt.nextval from dual
+	</selectKey>
+	insert into cmt(cmtNo,bltNo,cmtContent,memberName,cmtDate,cmtPassword)
+	values(
+	#{cmtNo},
+	#{bltNo},
+	#{cmtContent},
+	#{memberName},
+	<![CDATA[
+	TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI:SS')
+	]]>,
+	#{cmtPassword}
+	)
+	</insert>
+	
+	<!-- 리플 조회  -->
+	<select id="commentList" parameterType="com.spring.board.bulletin.utill.Criteria" resultType="com.spring.board.bulletin.dto.commentDTO">
+	
+	select cmtNo,bltNo,cmtContent,memberName,cmtDate from
+	(
+    select cmtNo,bltNo,cmtContent,memberName,cmtDate, rownum as rnum
+    from(
+	select cmtNo,bltNo,cmtContent,memberName,cmtDate
+	from cmt
+	where bltNo = #{bltNo}
+	order by cmtNo DESC, cmtDate DESC
+    
+	)
+<![CDATA[
+	where rownum <= #{perPageNum} + #{pageStart}
+	)
+	where rnum >= #{pageStart} +1
+]]>
+
+	
+	</select>
+	
+	<select id="commentListCount" resultType="int"  parameterType="int">
+	select count(*)
+	from CMT
+	where bltNo = #{bltNo}
+	</select>
+	
+	<delete id="commentDelete" parameterType="int">
+	delete from CMT where cmtNo= #{cmtNo}
+	</delete>
+	
+	<!--비밀번호 확인  -->
+	<select id="commentPwdSelect" resultType="String"  parameterType="int">
+	select cmtPassword
+	from CMT
+	where cmtNo = #{cmtNo}
+	</select>
+	
 </mapper>
 
 

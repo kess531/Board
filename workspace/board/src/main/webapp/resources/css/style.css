@@ -27,6 +27,10 @@
 * {
   box-sizing: border-box;
 }
+html {
+  width: 100%;
+  height: 200%;
+}
 /* Body */
 body {
   margin: 0;
@@ -235,10 +239,6 @@ span {
   left: 50%;
 }
 
-.paging {
-  margin: 0px 8px;
-}
-
 .btn__wirte {
   position: absolute;
   top: 1000px;
@@ -375,7 +375,7 @@ span {
   height: 100%;
 }
 
-/* contentview.html */
+/* contentview */
 .container__contentview {
   width: 1400px;
   height: 800px;
@@ -398,6 +398,7 @@ span {
   justify-content: space-between;
   border-bottom: 2px solid var(--color-black);
   align-items: center;
+  text-align: right;
 }
 
 .container__contentview__board__subject {
@@ -444,7 +445,7 @@ span {
   padding: 20px;
 }
 
-.container__contentview__board__content__like {
+.container__contentview__board__content__btn {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -458,8 +459,27 @@ span {
   height: 60px;
   margin-bottom: 30px;
 }
+.container__contentview__board__content__rigthBtn {
+  text-align: right;
+}
+.container__contentview__board__content__updateBtn {
+  font-size: var(--font-medium);
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  width: 130px;
+  height: 60px;
+  margin-bottom: 30px;
+}
+.container__contentview__board__content__deleteBtn {
+  font-size: var(--font-medium);
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  width: 130px;
+  height: 60px;
+  margin-bottom: 30px;
+}
 
-.container__contentview__board__content__like :hover {
+.container__contentview__board__content__likeBtn :hover {
   background-color: var(--color-white);
 
   color: red;
@@ -473,52 +493,89 @@ span {
 .container__contentview__comment__header {
   margin: 20px 20px;
 }
+.container__contentview__comment__input {
+  display: flex;
+  justify-content: space-around;
+  width: 1360px;
+}
 
 .container__contentview__comment__content {
-  border-bottom: 1px var(--color-black) solid;
-  margin: 20px 20px;
+  margin: 50px 20px;
 }
 
 .container__contentview__comment__content__wrap {
   display: flex;
-  font-size: var(--font-regular);
+  border-bottom: 1px var(--color-black) solid;
+  padding: 20px;
+  margin-left: 20px;
 }
 
 .container__contentview__comment__content__info {
   display: flex;
   margin-top: 30px;
+  padding-bottom: 20px;
 }
 
 .container__contentview__comment__content__writer {
   width: 200px;
+  font-size: var(--font-regular);
   border-right: 1px solid var(--color-black);
 }
 
-.container__contentview__comment__content__wrap {
+.container__contentview__comment__content__content {
   margin-left: 20px;
+  width: 900px;
 }
 
 .container__contentview__comment__content__date {
-  margin-left: 240px;
+  font-size: var(--font-micro);
 }
 
-.container__contentview__comment__content__reply {
-  margin-left: 20px;
-}
-
-.container__contentview__comment__content__replyBtn {
+.container__contentview__comment__content__deleteBtn {
+  width: 20px;
+  height: 20px;
+  font-size: var(--font-micro);
+  margin-left: 10px;
 }
 
 .container__contentview__comment__reply__writer {
   font-weight: var(--weight-bold);
   margin: 10px 0;
 }
-
-.container__contentview__comment__commentText {
-  width: 100%;
-  height: 100px;
+.container__contentview__comment__write {
 }
 
-.container__contentview__comment__reply {
-  display: none;
+.container__contentview__comment__commentText {
+  width: 1000px;
+  height: 100px;
+  font-size: var(--font-small);
+}
+.container__contentview__comment__commentPassword {
+  position: relative;
+  bottom: 77px;
+  width: 150px;
+  height: 30px;
+}
+.container__contentview__comment__commentBtn {
+  width: 100px;
+  height: 100px;
+  font-size: var(--font-micro);
+}
+.container__contentview__comment__paging {
+  display: flex;
+  justify-content: center;
+}
+
+.cotentView__Paging,
+.index__Paging {
+  margin: 0px 8px;
+}
+
+.index__Paging.seleted.now__paging {
+  color: red;
+  font-weight: var(--weight-bold);
+}
+.contentView__Paging.now__paging {
+  color: blue;
+  font-weight: var(--weight-bold);
 }

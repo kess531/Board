@@ -27,6 +27,10 @@
 * {
   box-sizing: border-box;
 }
+html {
+  width: 100%;
+  height: 200%;
+}
 /* Body */
 body {
   margin: 0;
@@ -38,13 +42,13 @@ textarea {
   resize: none;
 }
 a {
-  /* a태그 밑에 있는 밑줄 제거 */
+  /* a�깭洹� 諛묒뿉 �엳�뒗 諛묒쨪 �젣嫄� */
   text-decoration: none;
   color: var(--color-black);
 }
 
 ul {
-  /* ul 스타일 제거 */
+  /* ul �뒪���씪 �젣嫄� */
   list-style: none;
   padding-left: 0;
 }
@@ -88,6 +92,7 @@ button {
 span {
   display: block;
 }
+
 /* Header */
 #header {
   display: flex;
@@ -148,15 +153,17 @@ span {
   transform: scale(1.2);
 }
 
-/* 검색창 */
+/* 寃��깋李� */
 
-.container {
+.container__subTitle__form {
+  margin: 0px 0px 20px 10px;
 }
 
 .container__subTitle__select {
   width: 100px;
   height: 50px;
   font-size: var(--font-regular);
+  margin: 20px 0px 0px 20px;
 }
 
 .container__subTitle__text {
@@ -172,24 +179,26 @@ span {
   height: 50px;
 }
 
-/* 게시판 */
+/* 寃뚯떆�뙋 */
 
 .container__board {
-  display: table;
   padding-top: 60px;
   width: 1300px;
   height: 1200px;
+  text-align: left;
   margin: auto;
   vertical-align: middle;
 }
 
 .container__board__list {
-  display: table-row;
-  border: solid 3px black;
-  height: 54px;
+  border: none;
+  display: flex;
+  margin-bottom: 10px;
+  border: none;
   font-size: var(--font-small);
 }
 .container__board__type {
+  height: 50%;
   position: relative;
   border: solid 1px black;
   color: var(--color-white);
@@ -200,33 +209,43 @@ span {
 }
 
 .container__board__title {
-  margin: 0px 30px;
+  margin-right: 20px;
   font-size: var(--font-regular);
+  width: 600px;
 }
 
 .container__board__writer {
-  margin: 0px 30px;
+  margin-right: 20px;
+  width: 200px;
 }
 
 .container__board__date {
-  margin: 0px 30px;
+  margin-right: 20px;
+  width: 100px;
 }
 .container__board__cnt {
-  margin: 0px 30px;
+  margin-right: 20px;
+  width: 50px;
 }
 .container__board__like {
-  margin: 0px 30px;
+  margin-right: 20px;
+  width: 50px;
 }
 
 .container__board__paging {
+  display: flex;
   position: absolute;
-  top: 100%;
+  top: 1000px;
   left: 50%;
+}
+
+.paging {
+  margin: 0px 8px;
 }
 
 .btn__wirte {
   position: absolute;
-  top: 100%;
+  top: 1000px;
   left: 80%;
   width: 200px;
   height: 50px;
@@ -355,12 +374,12 @@ span {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
 }
-.container__write__btn2 {
+.container__write__list {
   width: 140px;
   height: 100%;
 }
 
-/* contentview.html */
+/* contentview */
 .container__contentview {
   width: 1400px;
   height: 800px;
@@ -383,6 +402,7 @@ span {
   justify-content: space-between;
   border-bottom: 2px solid var(--color-black);
   align-items: center;
+  text-align: right;
 }
 
 .container__contentview__board__subject {
@@ -429,7 +449,7 @@ span {
   padding: 20px;
 }
 
-.container__contentview__board__content__like {
+.container__contentview__board__content__btn {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -443,8 +463,27 @@ span {
   height: 60px;
   margin-bottom: 30px;
 }
+.container__contentview__board__content__rigthBtn {
+  text-align: right;
+}
+.container__contentview__board__content__updateBtn {
+  font-size: var(--font-medium);
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  width: 130px;
+  height: 60px;
+  margin-bottom: 30px;
+}
+.container__contentview__board__content__deleteBtn {
+  font-size: var(--font-medium);
+  border: 2px solid var(--color-black);
+  border-radius: 20px;
+  width: 130px;
+  height: 60px;
+  margin-bottom: 30px;
+}
 
-.container__contentview__board__content__like :hover {
+.container__contentview__board__content__likeBtn :hover {
   background-color: var(--color-white);
 
   color: red;
@@ -458,40 +497,48 @@ span {
 .container__contentview__comment__header {
   margin: 20px 20px;
 }
+.container__contentview__comment__input {
+  display: flex;
+  justify-content: space-around;
+  width: 1360px;
+}
 
 .container__contentview__comment__content {
-  border-bottom: 1px var(--color-black) solid;
-  margin: 20px 20px;
+  margin: 50px 20px;
 }
 
 .container__contentview__comment__content__wrap {
   display: flex;
-  font-size: var(--font-regular);
+  border-bottom: 1px var(--color-black) solid;
+  padding: 20px;
+  margin-left: 20px;
 }
 
 .container__contentview__comment__content__info {
   display: flex;
   margin-top: 30px;
+  padding-bottom: 20px;
 }
 
 .container__contentview__comment__content__writer {
   width: 200px;
+  font-size: var(--font-regular);
   border-right: 1px solid var(--color-black);
 }
 
-.container__contentview__comment__content__wrap {
+.container__contentview__comment__content__content {
   margin-left: 20px;
+  width: 900px;
 }
 
 .container__contentview__comment__content__date {
-  margin-left: 240px;
+  font-size: var(--font-micro);
 }
 
-.container__contentview__comment__content__reply {
-  margin-left: 20px;
-}
-
-.container__contentview__comment__content__replyBtn {
+.container__contentview__comment__content__deleteBtn {
+  width: 20px;
+  height: 20px;
+  font-size: var(--font-micro);
 }
 
 .container__contentview__comment__reply__writer {
@@ -500,10 +547,15 @@ span {
 }
 
 .container__contentview__comment__commentText {
-  width: 100%;
+  width: 1200px;
   height: 100px;
+  font-size: var(--font-small);
 }
-
-.container__contentview__comment__reply {
-  display: none;
+.container__contentview__comment__commentBtn {
+  width: 100px;
+  height: 100px;
+  font-size: var(--font-micro);
+}
+.container__contentview__comment__paging {
+  text-align: center;
 }

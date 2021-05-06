@@ -3,7 +3,9 @@ package com.spring.board.bulletin.service;
 import java.util.List;
 
 import com.spring.board.bulletin.dto.bulletinDTO;
+import com.spring.board.bulletin.dto.commentDTO;
 import com.spring.board.bulletin.utill.Criteria;
+import com.spring.board.bulletin.utill.CriteriaCmt;
 
 public interface bulletinService {
 
@@ -27,4 +29,25 @@ public interface bulletinService {
 		
 		//글 작성
 		public void bulletinWrite(bulletinDTO dto);
+
+		//글 확인
+		public List<bulletinDTO> bulletinContentView(int bltNo);
+		//조회수 증가
+		public void bulletinViewCnt(int bltNo);
+		//좋아요 증가
+		public void bulletinLikeCnt(int bltNo);
+		//좋아요 조회
+		public String bulletinLikeSelect(int bltNo);
+		
+		//댓글작성
+		public void commentWrite(commentDTO dto);
+		//댓글 리스트
+		public List<commentDTO> commentList(CriteriaCmt cmt);
+		public int commentListCount(int bltNo);
+		
+		//댓글 삭제
+		public void commentDelete(int cmtNo);
+		
+		//비밀번호 확인
+		public String commentPwdSelect(int cmtNo);
 }
