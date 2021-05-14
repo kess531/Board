@@ -15,8 +15,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=18"/>
-	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=82" defer ></script>
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=56"/>
+	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=135" defer ></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -29,12 +29,8 @@
         </div>
 
         <ul class="header__navbar">
-            <li class="navbar__menu__item active" data-link="#total">전체</li>
-            <li class="navbar__menu__item" data-link="#free">자유</li>
-            <li class="navbar__menu__item" data-link="#qna">질문</li>
-            <li class="navbar__menu__item" data-link="#jobs">구직</li>
             <c:if test="${member!= null}">
-            <li>${member}님 환영합니다. 이건 나중에 지우자</li>
+            <li>${member}님 환영합니다.</li>
 			<li class="navbar__menu__item" data-link="#logaut"><a href="member/logout">로그아웃</a></li>
 			</c:if>
 			<c:if test="${member==null}">
@@ -48,7 +44,7 @@
             <div class="container__subTitle">
                 <section class="container__subTitle__search">
                     <form class="container__subTitle__form" method="GET" onsubmit="return false">
-                       <select class="container__subTitle__select" name="clsfcselect">
+                    <select class="container__subTitle__select" name="clsfcselect">
                             <option class="container__subTitle__select__item" value="title">제목</option>
                             <option class="container__subTitle__select__item" value="content">내용</option>
                             <option class="container__subTitle__select__item" value="writer">작성자</option>
@@ -65,13 +61,17 @@
                 <ul class="container__board__listview">
                 
                 </ul>
-                <div class="container__board__paging">
+                <div class="container__board__bottom">
+                    <div class="container__board__paging">
                     
+                    </div>
+                    <c:if test="${member!= null}">
+                        <div class="container__board__bottom__btn">
+                                <button class="container__board__wirte__btn" onclick="location.href='bulletin/write.do'">글쓰기</button>
+                        </div>
+                                </c:if>
                 </div>
-                 <c:if test="${member!= null}">
-                <button class="btn__wirte" onclick="location.href='bulletin/write.do'">글쓰기</button>
-                </c:if>
-            	</div>
+                </div>
         </div>
     </div>
     <div class="arrowup__btn"><i class="fas fa-arrow-alt-circle-up"></i></div>

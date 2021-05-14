@@ -74,6 +74,19 @@ public class bulletinServiceImpl implements bulletinService {
 		
 		bulletindao.bulletinWrite(dto);
 	}
+	
+	@Override
+	public void bulletinUpdate(bulletinDTO dto) {
+
+		bulletindao.bulletinUpdate(dto);
+		
+	}
+
+	@Override
+	public void bulletinDelete(int bltNo) {
+		
+		bulletindao.bulletinDelete(bltNo);;		
+	}
 
 	@Override
 	public List<bulletinDTO> bulletinContentView(int bltNo) {
@@ -132,6 +145,7 @@ public class bulletinServiceImpl implements bulletinService {
 		
 		return bulletindao.commentPwdSelect(cmtNo);
 	}
+
 	
 	
 

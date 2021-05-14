@@ -28,7 +28,10 @@ public interface bulletinDAO {
 	
 	//글 작성
 	public void bulletinWrite(bulletinDTO dto);
-	
+	//글 수정
+	public void bulletinUpdate(bulletinDTO dto);
+	//글 삭제
+	public void bulletinDelete(int bltNo);
 	//글 확인
 	public List<bulletinDTO> bulletinContentView(int bltNo);
 	//조회수 증가

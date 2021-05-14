@@ -8,8 +8,9 @@
   --color-gray: #616161;
   --color-light-gray: #7c7979;
   /* FontSize */
-  --font-large: 48px;
-  --font-medium: 32px;
+  --font-xlarge: 48px;
+  --font-large: 32px;
+  --font-medium: 24px;
   --font-regular: 18px;
   --font-small: 16px;
   --font-micro: 14px;
@@ -132,7 +133,7 @@ span {
 
 /* container */
 #container {
-  padding-top: 120px;
+  padding-top: 20px;
 }
 .container__subTitle {
   display: flex;
@@ -163,7 +164,7 @@ span {
   width: 100px;
   height: 50px;
   font-size: var(--font-regular);
-  margin: 20px 0px 0px 20px;
+  margin: 20px 0px 0px 1200px;
 }
 
 .container__subTitle__text {
@@ -182,12 +183,17 @@ span {
 /* 寃뚯떆�뙋 */
 
 .container__board {
+  display: flex;
   padding-top: 60px;
   width: 1300px;
-  height: 1200px;
+  height: 650px;
   text-align: left;
   margin: auto;
   vertical-align: middle;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  font-size: var(--font-regular);
 }
 
 .container__board__list {
@@ -195,54 +201,78 @@ span {
   display: flex;
   margin-bottom: 10px;
   border: none;
-  font-size: var(--font-small);
+  height: 50px;
+}
+
+.item__row {
+  transition: all var(--animation-duration) ease;
+}
+.item__row :hover {
+  background-color: var(--color-dark-white);
 }
 .container__board__type {
-  height: 50%;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  line-height: 25px;
   position: relative;
   border: solid 1px black;
   color: var(--color-white);
   border: 2px solid var(--color-black);
   background-color: var(--color-light-gray);
   border-radius: 4px;
-  margin: 0px 30px;
+  margin: auto;
 }
 
 .container__board__title {
   margin-right: 20px;
-  font-size: var(--font-regular);
+  line-height: 50px;
   width: 600px;
+
+  /* ...처리 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container__board__writer {
   margin-right: 20px;
   width: 200px;
+  margin: auto;
+
+  /* ...처리 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container__board__date {
   margin-right: 20px;
-  width: 100px;
+  width: 150px;
+  margin: auto;
 }
 .container__board__cnt {
   margin-right: 20px;
-  width: 50px;
+  width: 70px;
+
+  margin: auto;
 }
 .container__board__like {
   margin-right: 20px;
-  width: 50px;
+  width: 70px;
+  margin: auto;
 }
 
 .container__board__paging {
   display: flex;
-  position: absolute;
-  top: 1000px;
-  left: 50%;
+  justify-content: center;
 }
 
-.btn__wirte {
-  position: absolute;
-  top: 1000px;
-  left: 80%;
+.container__board__bottom__btn {
+  text-align: right;
+}
+
+.container__board__wirte__btn {
   width: 200px;
   height: 50px;
   background-color: var(--color-gray);
@@ -406,6 +436,9 @@ span {
   display: flex;
 }
 
+.container__contentview__board__no {
+  display: none;
+}
 .container__contentview__board__type {
   margin-left: 30px;
   border: 1px solid var(--color-black);
@@ -417,13 +450,14 @@ span {
   text-align: center;
   line-height: 40px;
   font-weight: var(--weight-bold);
+  color: var(--color-white);
 }
 
 .container__contentview__board__title {
   width: 80%;
   height: 40px;
   line-height: 40px;
-  font-size: var(--font-regular);
+  font-size: var(--font-medium);
   margin: auto;
 }
 
@@ -566,16 +600,16 @@ span {
   justify-content: center;
 }
 
-.cotentView__Paging,
+.contentView__Paging,
 .index__Paging {
   margin: 0px 8px;
+  font-size: var(--font-medium);
 }
 
-.index__Paging.seleted.now__paging {
-  color: red;
+.index__Paging__now,
+.contentView__Paging__now {
+  margin: 0px 8px;
+  color: var(--color-gray);
   font-weight: var(--weight-bold);
-}
-.contentView__Paging.now__paging {
-  color: blue;
-  font-weight: var(--weight-bold);
+  font-size: var(--font-medium);
 }

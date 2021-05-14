@@ -145,13 +145,25 @@ apper 3.0//EN"
 	#{bltContent},
 	#{bltType},
 	<![CDATA[
-	TO_CHAR(SYSDATE,'YYYY-MM-DD HH24:MI,SS'),
+	TO_CHAR(SYSDATE,'YYYY-MM-DD'),
 	]]>
 	#{bltLike},
 	#{bltCnt},
 	#{memberName}	
 	) 
 	</insert>
+	
+	<!-- 글 수정  -->
+	<update id="bulletinUpdate">
+	update bulletin 
+	set bltTitle=#{bltTitle}, bltContent = #{bltContent}, bltType = #{bltType},
+	bltDate = <![CDATA[ TO_CHAR(SYSDATE,'YYYY-MM-DD')]]>
+	where bltNo = #{bltNo} 
+	</update>
+	<!-- 글 삭제  -->
+	<delete id="bulletinDelete">
+	delete from bulletin where  bltNo=#{bltNo}
+	</delete>
 	
 	<!-- 컨텐츠 확인 -->
 	<select id="bulletinContentView" resultType="com.spring.board.bulletin.dto.bulletinDTO">

@@ -29,13 +29,18 @@ $(document).ready(function(){
          });
     }
 
-
+    const index__Paging = document.querySelector('.index__Paging');
     //페이징
-container__board__paging.addEventListener('click',e=>{
+container__board__paging.addEventListener('click',(e)=>{
     const targetid = e.target.dataset.id;
-    e.target.classList.remove('now__paging');
+    const target = e.target;
+
+   
+  
+
     if(targetid)
     {
+       
         $.ajax({            
             type:'GET',
             url:'bulletin/listView',
@@ -45,14 +50,17 @@ container__board__paging.addEventListener('click',e=>{
             dataType:'JSON',
             success : function(obj) {
                 console.log('검색성공');
-                e.target.classList.add('now__paging');
-                getBoardListCallback(obj);                
+                getBoardListCallback(obj);
+                target.classList.add('now__paging');
+                     
             },           
             error : function(xhr, status, error) {
                 console.log('검색실패');
             }
             });
+            
     }
+    target.classList.add('now__paging'); 
 })
 
 const container__subTitle__btn = document.querySelector('.container__subTitle__btn');
@@ -104,12 +112,13 @@ container__subTitle__text.addEventListener('keyup',()=>{
 function getBoardListCallback(obj){
 	 const container__board__listview =document.querySelector('.container__board__listview');
     container__board__listview.innerHTML='';    
+    container__board__paging.innerHTML='';
     let list = obj;
     let listLen = list.list.length
 
 
    if(listLen >  0){
-    container__board__paging.innerHTML='';
+   
         for(let i=0; i<listLen; i++){
             let bltNo           = list.list[i].bltNo;
             let bltTitle        = list.list[i].bltTitle; 
@@ -132,28 +141,59 @@ function getBoardListCallback(obj){
             
             container__board__listview.appendChild(itemRow);
         } 
+
+        if(list.pagemaker.prev==true){
+
+            const firstPage = list.pagemaker.startPage - 1;
+            const prevBtn = document.createElement('p');
+            prevBtn.setAttribute('class','index__Paging');
+            prevBtn.setAttribute('data-id',`${firstPage}`);
+            prevBtn.innerHTML='이전';
+            container__board__paging.appendChild(prevBtn);
+        }
+     
+
+
         for(let i=list.pagemaker.startPage; i<=list.pagemaker.endPage; i++){
-            const pagingBtn = document.createElement('p');
-            pagingBtn.setAttribute('class','index__Paging');
-            pagingBtn.setAttribute('data-id',`${i}`);
-            pagingBtn.innerHTML=`${i}`;
-            container__board__paging.appendChild(pagingBtn);
+
+         //현재 페이지
+            if(i===list.pagemaker.cri.page){
+                const pagingBtn = document.createElement('p');
+                pagingBtn.setAttribute('class','index__Paging__now');
+                pagingBtn.setAttribute('data-id',`${i}`);
+                pagingBtn.innerHTML+=`${i}`;
+                container__board__paging.appendChild(pagingBtn);
+            }
+            else{
+                const pagingBtn = document.createElement('p');
+                pagingBtn.setAttribute('class','index__Paging');
+                pagingBtn.setAttribute('data-id',`${i}`);
+                pagingBtn.innerHTML+=`${i}`;
+                container__board__paging.appendChild(pagingBtn);
+                
+            }
+           
+            
             
         }
-
+        if(list.pagemaker.next==true){
+            const lastPage = list.pagemaker.endPage + 1;
+            const nextBtn = document.createElement('p');
+            nextBtn.setAttribute('class','index__Paging');
+            nextBtn.setAttribute('data-id',`${lastPage}`);
+            nextBtn.innerHTML='다음';
+            container__board__paging.appendChild(nextBtn);
+        }
         }
         else if(listLen==0){
             container__board__listview.innerHTML='';
             container__board__paging.innerHTML='';
         }
-        
         else {
-        
         console.log('게시글이없습니다.');
     }
-    
-
 }
+
 function bltTypeSelector(obj){
     let type;
     if(obj==='free')

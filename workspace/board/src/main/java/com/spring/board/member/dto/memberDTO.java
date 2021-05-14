@@ -23,7 +23,6 @@ public class memberDTO {
 	private String memberEmail;
 	@NotEmpty
 	@Length(min=2, max=10)
-	@Pattern(regexp="(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{2,}")
 	private String memberName;
 	
 	public int getMemberNo() {

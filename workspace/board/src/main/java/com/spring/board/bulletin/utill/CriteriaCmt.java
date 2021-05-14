@@ -16,7 +16,7 @@ public class CriteriaCmt {
 
 	public CriteriaCmt() {
 		this.page = 1;
-		this.perPageNum = 2;
+		this.perPageNum = 10;
 	}
 
 	public int getPage() {

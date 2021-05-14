@@ -11,6 +11,7 @@ public class bulletinDTO {
 	private int bltLike;
 	private String bltDate;
 	private String memberName;
+	
 	public int getBltNo() {
 		return bltNo;
 	}

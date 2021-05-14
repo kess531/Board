@@ -82,6 +82,20 @@ public class bulletinDAOImpl implements bulletinDAO {
 	public void bulletinWrite(bulletinDTO dto) {
 		sqlsession.insert(namespace + "bulletinWrite",dto);
 	}
+	
+
+	@Override
+	public void bulletinUpdate(bulletinDTO dto) {
+		sqlsession.update(namespace + "bulletinUpdate",dto);
+		
+	}
+
+	@Override
+	public void bulletinDelete(int bltNo) {
+		sqlsession.delete(namespace + "bulletinDelete",bltNo);
+		
+	}
+
 
 	@Override
 	public List<bulletinDTO> bulletinContentView(int bltNo) {

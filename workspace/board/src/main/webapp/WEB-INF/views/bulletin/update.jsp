@@ -36,17 +36,19 @@
         </ul>
         </header>
         <div id="container">
+       
             <div class="container__write">
-                <form class="container__write__form" action="contentWrite" method="get" >
+                <form class="container__write__form" action="contentUpdate" method="get">
+                 <c:forEach items="${contentView}" var="contentView">
                     <div class="container__write__form__subject">
-                        <input type="hidden" name="bltDate">
+                        <input class= "container__write__form__bltNo" type="hidden" name="bltNo" value="${contentView.bltNo}">
                         <input type="hidden" name="bltDate">
                     <select class="container__write__select" name="bltType" >
                         <option class="container__write__select__item" value="free">자유</option>
                         <option class="container__write__select__item" value="qna">질문</option>
                         <option class="container__write__select__item" value="jobs">구직</option>
                     </select>
-                    <input class="container__write__text" type="text" placeholder="제목을 입력해주세요." name="bltTitle">
+                    <input class="container__write__text" type="text" placeholder="제목을 입력해주세요." value="${contentView.bltTitle}" name="bltTitle">
                     <input class="container__write__list" onclick="location.href='bulletin/index'"  type="button" value="목록">
                 </div>
                 <div class="container__write__form__writer">
@@ -55,14 +57,14 @@
                 <input type="hidden" name="memberName" value='${member}'>
                 </c:if>
                 </div>
-
                 <div class="container__write__form__textarea">
-                    <textarea name="bltContent" class="container__write__textarea" ></textarea>
+                    <textarea name="bltContent" class="container__write__textarea">${contentView.bltContent}</textarea>
                 </div>
                 <div class="container__write__form__btn">
-                    <input class="container__write__btn" type="submit" value="등록">
+                    <input class="container__write__btn" type="submit" value="수정">
                     <input class="container__write__btn" type="reset" value="취소">
                 </div>
+                </c:forEach>
                 </form>
             </div>
         </div>
@@ -70,10 +72,9 @@
 
             
         </div>
-        <button class="arrow-up__btn">
+        <button class="arrowup__btn">
             <i class="fas fa-arrow-up"></i>
         </button>
-    </div>
 
 
 

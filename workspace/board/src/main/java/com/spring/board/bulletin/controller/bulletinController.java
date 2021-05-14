@@ -90,7 +90,7 @@ public class bulletinController {
 	}
 	
 	@RequestMapping(value="/write.do")
-	public String gowrite() {
+	public String goWrite() {
 		
 		return "bulletin/write";
 	}
@@ -103,6 +103,30 @@ public class bulletinController {
 		return "redirect:/";
 		
 	}
+	@RequestMapping(value="/update.do")
+	public String goUpdate(Model model, int bltNo) {
+		List<bulletinDTO> contentView = bulletinservice.bulletinContentView(bltNo);
+		model.addAttribute("contentView",contentView);
+		return "bulletin/update";
+	}
+	@RequestMapping(value="/contentUpdate")
+	public String contentUpdate(bulletinDTO dto) throws Exception  {
+		
+		bulletinservice.bulletinUpdate(dto);
+		
+		return "redirect:/";
+		
+	}
+	@RequestMapping(value="/contentDelete")
+	public String contentDelete(int bltNo) throws Exception  {
+		
+		System.out.println("글삭제" + bltNo);
+		bulletinservice.bulletinDelete(bltNo);
+		
+		return "redirect:/";
+		
+	}
+	
 	@RequestMapping(value="/contentView")
 	public String contentView
 	(@RequestParam(value="bltNo", required = false) int bltNo,HttpServletRequest request, HttpServletResponse response, RedirectAttributes rttr,
@@ -121,6 +145,9 @@ public class bulletinController {
 			model.addAttribute("msg", "11");
 			return "redirect:/";
 		}
+		
+		model.addAttribute("userName",userName);
+		
 		
 		boolean isGet = false;
 		Cookie[] cookies = request.getCookies();
