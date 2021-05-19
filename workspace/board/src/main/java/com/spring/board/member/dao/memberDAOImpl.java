@@ -34,6 +34,18 @@ public class memberDAOImpl implements memberDAO {
 		return sqlsession.selectOne(namespace + "memberLogin",dto);
 	}
 
+	@Override
+	public String memberLoginName(memberDTO dto) {
+		
+		return sqlsession.selectOne(namespace + "memberLoginName",dto);
+	}
+
+	@Override
+	public int memberLoginCheck(String memberId) {
+		int memberidcnt =  sqlsession.selectOne(namespace + "memberLoginCheck",memberId);
+		return memberidcnt;
+	}
+
 
 	
 }

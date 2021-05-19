@@ -190,6 +190,7 @@ function getBoardListCallback(obj){
             container__board__paging.innerHTML='';
         }
         else {
+            container__board__listview.innerHTML='게시글이 없습니다.';
         console.log('게시글이없습니다.');
     }
 }

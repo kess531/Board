@@ -119,7 +119,6 @@ public class bulletinController {
 	}
 	@RequestMapping(value="/contentDelete")
 	public String contentDelete(int bltNo) throws Exception  {
-		
 		System.out.println("글삭제" + bltNo);
 		bulletinservice.bulletinDelete(bltNo);
 		
@@ -142,7 +141,7 @@ public class bulletinController {
 		model.addAttribute("cmtCount", cmtCount);
 		if(userName==null) {
 			 rttr.addFlashAttribute("msg",false);
-			model.addAttribute("msg", "11");
+			//model.addAttribute("msg", "11");
 			return "redirect:/";
 		}
 		

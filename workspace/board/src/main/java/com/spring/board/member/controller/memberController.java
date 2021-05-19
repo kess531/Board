@@ -39,8 +39,8 @@ public class memberController {
 				
 	}
 	
-	@RequestMapping(value="/memberjoin", method = RequestMethod.POST)
-	public String memberReg(@ModelAttribute @Valid memberDTO dto , BindingResult result) {
+	@RequestMapping(value="/memberJoin", method = RequestMethod.POST)
+	public String memberReg(@ModelAttribute @Valid memberDTO dto , BindingResult result)  throws Exception {
 		
 		if( result.hasErrors() ) {
 
@@ -68,19 +68,28 @@ public class memberController {
 				
 	}
 	
-	@RequestMapping(value="/memberlogin" , method = RequestMethod.POST)
-	public String login(memberDTO dto, HttpServletRequest request) throws Exception{
+	@RequestMapping(value="/memberLogin" , method = RequestMethod.POST)
+	public String login(@ModelAttribute @Valid memberDTO dto, BindingResult result, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
 		
+		int memberIdCheck = memberService.memberLoginCheck(dto.getMemberId());
 		HttpSession session = request.getSession();
+		if(memberIdCheck == 0) {
+			  session.setAttribute("member", null);
+			  rttr.addFlashAttribute("msg",false);
+			  return "redirect:/member/login.do";
+		}
+		
 		String loginCheck = memberService.login(dto);
+		String memberName = memberService.memberLoginName(dto);
 		  if(loginCheck== null) {
 			  System.out.println("로그인실패");
-		  session.setAttribute("member", null); 
+		  session.setAttribute("member", null);
+		  rttr.addFlashAttribute("msg",false);
 		  return "redirect:/member/login.do";
 		  
 		  } else {
 			  System.out.println("로그인 성공"); 
-			  session.setAttribute("member", loginCheck);
+			  session.setAttribute("member", memberName);
 			  return "redirect:/";
 		  }
 		

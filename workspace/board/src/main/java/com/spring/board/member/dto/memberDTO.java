@@ -11,17 +11,13 @@ public class memberDTO {
 
 	private int memberNo;
 	
-	@NotEmpty
 	@Length(min=5, max=20)
 	private String memberId;
-	@NotEmpty
 	@Length(min=5, max=20)
 	@Pattern(regexp="(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{5,}")
 	private String memberPw;
-	@NotEmpty
 	@Email
 	private String memberEmail;
-	@NotEmpty
 	@Length(min=2, max=10)
 	private String memberName;
 	

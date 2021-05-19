@@ -2,8 +2,7 @@ package com.spring.board.member.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,19 +39,44 @@ public class memberServiceImpl implements memberService {
 	@Override
 	public String login(memberDTO dto) {
 		// TODO Auto-generated method stub
-	String pw = dto.getMemberPw();
-	String Id = dto.getMemberId();
+
+	String memberpw = dto.getMemberPw();
+	String memberId = dto.getMemberId();
+	System.out.println("에러1");
 	String rpw= memberdao.memberLogin(dto).getMemberPw();
-	if(passwordencoder.matches(pw, rpw)) {
-		System.out.println("성공" + pw + rpw);
-		return Id;
+	if(rpw == null) {
+		System.out.println("에러2");
+		return "failLogin";
 	}
 	else {
-		System.out.println("실패" + pw + rpw);
-		return null;
+		System.out.println("에러3");
+		if(passwordencoder.matches(memberpw, rpw)) {
+			System.out.println("성공" + memberpw + rpw);
+			return memberId;
+		}
+		else {
+			System.out.println("실패" + memberpw + rpw);
+			return null;
+		}
+		
 	}
 	
 			
+	}
+
+
+	@Override
+	public String memberLoginName(memberDTO dto) {
+	
+		String memberName = memberdao.memberLoginName(dto);
+		return memberName;
+	}
+
+
+	@Override
+	public int memberLoginCheck(String memberId) {
+		int memberidcnt = memberdao.memberLoginCheck(memberId);
+		return memberidcnt;
 	}
 
 

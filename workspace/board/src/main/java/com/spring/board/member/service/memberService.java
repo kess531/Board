@@ -7,8 +7,8 @@ import com.spring.board.member.dto.memberDTO;
 public interface memberService {
 
 	public List<memberDTO> memberList();
-	
 	public void memberInsert(memberDTO dto);
-	
 	public String login(memberDTO dto);
+	public String memberLoginName(memberDTO dto);
+	public int memberLoginCheck(String memberId);
 }

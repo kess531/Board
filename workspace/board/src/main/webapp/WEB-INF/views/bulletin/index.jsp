@@ -24,8 +24,9 @@
     <div class="wrap">
         <header id="header">
         <div class="header__logo">
-            <i class="fas fa-code"></i>
-            <a href="#">게시판</a>
+                  <i class="fas fa-code">
+        <a href="/board/bulletin/index">게시판</a>
+        </i>
         </div>
 
         <ul class="header__navbar">

@@ -20,8 +20,19 @@ apper 3.0//EN"
 	)
 	</insert>
 	
-	<select id="memberLogin" resultType="com.spring.board.member.dto.memberDTO">
+	<select id="memberLoginName" resultType="String" parameterType="com.spring.board.member.dto.memberDTO">
+	select memberName
+	from member
+	where memberId = #{memberId} 
+	</select>
+	
+	<select id="memberLogin" resultType="com.spring.board.member.dto.memberDTO" parameterType="com.spring.board.member.dto.memberDTO">
 	select memberId, memberPw
+	from member
+	where memberId = #{memberId} 
+	</select>
+		<select id="memberLoginCheck" resultType="int" parameterType="com.spring.board.member.dto.memberDTO">
+	select count(*)
 	from member
 	where memberId = #{memberId} 
 	</select>

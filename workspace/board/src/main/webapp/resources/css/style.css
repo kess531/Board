@@ -364,8 +364,10 @@ span {
   width: 100%;
   height: 70px;
   margin: 24px 0 0 0;
-  font-size: var(--font-regular);
+  font-size: var(--font-medium);
   line-height: 70px;
+  margin-left: 20px;
+  font-weight: var(--weight-bold);
 }
 
 .container__write__text {

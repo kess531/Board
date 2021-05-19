@@ -13,7 +13,7 @@
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
     <script src="<%=request.getContextPath() %>/resources/js/main2.js?ver=8" defer></script>
-    	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=2"/>
+    	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=3"/>
     </head>
 <body>
    <div class="wrap">

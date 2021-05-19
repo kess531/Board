@@ -44,7 +44,7 @@ apper 3.0//EN"
 	</select>
 	<!-- 작성자 검색 -->
 	<select id="bulletinSearchMember" resultType="com.spring.board.bulletin.dto.bulletinDTO" parameterType="com.spring.board.bulletin.utill.Criteria">
-		select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
+	select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName from
 	(
     select bltNo, bltTitle, bltContent, bltType,bltDate,bltLike,bltCnt,memberName, rownum as rnum
     from(

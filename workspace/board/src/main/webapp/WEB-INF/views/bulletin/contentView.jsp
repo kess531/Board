@@ -27,7 +27,7 @@
             <ul class="header__navbar">
                 <c:if test="${member!= null}">
                 <li>${member}님 환영합니다.</li>
-                <li class="navbar__menu__item" data-link="#logaut"><a href="member/logout">로그아웃</a></li>
+                <li class="navbar__menu__item" data-link="#logaut"><a href="/member/logout">로그아웃</a></li>
                 </c:if>
                 <c:if test="${member==null}">
                 <li class="navbar__menu__item" ><a href="member/login.do">로그인</a></li>
@@ -75,7 +75,7 @@
                                   
                                 </div>
                                 <c:set var="memberName" value="${contentView.memberName}" />
-                                <c:if test="${userName eq memberName}">
+                                <c:if test="${userName eq memberName || userName=='관리자' }">
                                     <div class="container__contentview__board__content__rigthBtn">
                                         <button class="container__contentview__board__content__updateBtn" onclick="location.href='update.do?bltNo=${contentView.bltNo}'">수정</button>
                                         <button class="container__contentview__board__content__deleteBtn">삭제</button>
