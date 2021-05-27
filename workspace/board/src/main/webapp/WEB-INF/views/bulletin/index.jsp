@@ -16,7 +16,7 @@
     <!-- fontawesome-->
     <script src="https://kit.fontawesome.com/26b2ef94cb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css?ver=56"/>
-	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=135" defer ></script>
+	<script src="<%=request.getContextPath() %>/resources/js/main.js?ver=136" defer ></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>

@@ -42,6 +42,7 @@ public class memberController {
 	@RequestMapping(value="/memberJoin", method = RequestMethod.POST)
 	public String memberReg(@ModelAttribute @Valid memberDTO dto , BindingResult result)  throws Exception {
 		
+		//에러가 있는지 검사
 		if( result.hasErrors() ) {
 
 			// 에러를 List로 저장
